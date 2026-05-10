@@ -1,235 +1,712 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Itaewon Night Club</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ITAEWON NIGHT | Premium Club</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0d0d0d;
-            color: #ffffff;
-        }
+  <style>
+    :root {
+      --bg: #05030a;
+      --card: rgba(255, 255, 255, 0.08);
+      --line: rgba(255, 255, 255, 0.18);
+      --text: #ffffff;
+      --muted: #c9c4d8;
+      --pink: #ff006e;
+      --purple: #8338ec;
+      --blue: #3a86ff;
+      --yellow: #ffbe0b;
+    }
 
-        header {
-            background-color: #111111;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #333333;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        header h1 {
-            margin: 0;
-            color: #ff0055;
-            font-size: 28px;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 15px;
-        }
+    body {
+      min-height: 100vh;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255, 0, 110, 0.38), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(58, 134, 255, 0.34), transparent 26%),
+        radial-gradient(circle at 50% 80%, rgba(131, 56, 236, 0.40), transparent 34%),
+        var(--bg);
+      overflow-x: hidden;
+    }
 
-        nav a:hover {
-            color: #ff0055;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+      z-index: 0;
+    }
 
-        .hero {
-            height: 520px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-                        url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819") center/cover no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+    .glow {
+      position: fixed;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.6;
+      z-index: 0;
+      animation: floatGlow 7s ease-in-out infinite alternate;
+    }
 
-        .hero h2 {
-            font-size: 56px;
-            margin-bottom: 20px;
-        }
+    .glow.one {
+      top: 8%;
+      left: -120px;
+      background: var(--pink);
+    }
 
-        .hero p {
-            font-size: 20px;
-            color: #dddddd;
-        }
+    .glow.two {
+      right: -120px;
+      bottom: 10%;
+      background: var(--blue);
+      animation-delay: 1.5s;
+    }
 
-        .hero button {
-            margin-top: 30px;
-            padding: 14px 32px;
-            background-color: #ff0055;
-            color: #ffffff;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
+    @keyframes floatGlow {
+      from {
+        transform: translateY(0) scale(1);
+      }
+      to {
+        transform: translateY(40px) scale(1.15);
+      }
+    }
 
-        .hero button:hover {
-            background-color: #cc0044;
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 3, 10, 0.72);
+      backdrop-filter: blur(18px);
+    }
 
-        section {
-            padding: 70px 60px;
-        }
+    .logo {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow:
+        0 0 10px var(--pink),
+        0 0 22px var(--purple),
+        0 0 34px var(--blue);
+    }
 
-        section h2 {
-            text-align: center;
-            color: #ff0055;
-            margin-bottom: 40px;
-            font-size: 34px;
-        }
+    nav {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+    }
 
-        .about {
-            max-width: 850px;
-            margin: 0 auto;
-            text-align: center;
-            line-height: 1.8;
-            color: #cccccc;
-        }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: 0.25s;
+    }
 
-        .cards {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 12px var(--pink);
+    }
 
-        .card {
-            background-color: #1a1a1a;
-            width: 280px;
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid #333333;
-            text-align: center;
-        }
+    .nav-btn {
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff;
+      box-shadow: 0 0 18px rgba(255,0,110,0.48);
+    }
 
-        .card h3 {
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
+    main {
+      position: relative;
+      z-index: 1;
+    }
 
-        .card p {
-            color: #bbbbbb;
-            font-size: 15px;
-            line-height: 1.6;
-        }
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      place-items: center;
+      padding: 80px 7% 70px;
+      text-align: center;
+      position: relative;
+    }
 
-        .info {
-            text-align: center;
-            line-height: 2;
-            color: #cccccc;
-        }
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 7%;
+      right: 7%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--pink), var(--blue), transparent);
+    }
 
-        footer {
-            background-color: #111111;
-            text-align: center;
-            padding: 25px;
-            color: #777777;
-            border-top: 1px solid #333333;
-        }
+    .badge {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 10px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.06);
+    }
 
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 20px;
-            }
+    .hero h1 {
+      max-width: 1050px;
+      margin: 0 auto;
+      font-size: clamp(46px, 8vw, 108px);
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: -4px;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 14px rgba(255,255,255,0.35),
+        0 0 34px rgba(255,0,110,0.70),
+        0 0 58px rgba(58,134,255,0.55);
+    }
 
-            nav {
-                margin-top: 15px;
-            }
+    .hero h1 span {
+      background: linear-gradient(90deg, #fff, var(--yellow), var(--pink), var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-            nav a {
-                margin: 0 8px;
-            }
+    .hero p {
+      max-width: 720px;
+      margin: 28px auto 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.8;
+    }
 
-            .hero h2 {
-                font-size: 38px;
-            }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 38px;
+    }
 
-            section {
-                padding: 50px 25px;
-            }
-        }
-    </style>
+    .btn {
+      display: inline-block;
+      padding: 15px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      transition: 0.25s;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+      box-shadow: 0 0 28px rgba(255, 0, 110, 0.55);
+    }
+
+    .btn.secondary {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.15);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 920px;
+      margin: 58px auto 0;
+    }
+
+    .stat {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 22px 70px rgba(0,0,0,0.28);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 30px;
+      color: #fff;
+    }
+
+    .stat small {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 38px;
+    }
+
+    .eyebrow {
+      color: var(--yellow);
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(34px, 5vw, 62px);
+      letter-spacing: -2px;
+      line-height: 1.02;
+    }
+
+    .section-head p {
+      margin-top: 18px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      min-height: 290px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.04));
+      backdrop-filter: blur(18px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.30);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(circle at top right, rgba(255,0,110,0.38), transparent 34%);
+      pointer-events: none;
+    }
+
+    .card h3 {
+      position: relative;
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+
+    .card p {
+      position: relative;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .card .tag {
+      position: relative;
+      display: inline-block;
+      margin-top: 24px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 0, 110, 0.15);
+      color: #ffd7e6;
+      border: 1px solid rgba(255, 0, 110, 0.35);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .lineup {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .schedule {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 130px 1fr 110px;
+      gap: 20px;
+      padding: 24px;
+      border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+
+    .schedule-row:last-child {
+      border-bottom: none;
+    }
+
+    .schedule-row time {
+      color: var(--yellow);
+      font-weight: 900;
+    }
+
+    .schedule-row h3 {
+      font-size: 20px;
+    }
+
+    .schedule-row span {
+      justify-self: end;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(58,134,255,0.16);
+      color: #d9e8ff;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .visual-card {
+      min-height: 100%;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(255,0,110,0.22), rgba(58,134,255,0.20)),
+        radial-gradient(circle at 30% 30%, rgba(255,190,11,0.34), transparent 28%),
+        rgba(255,255,255,0.08);
+      box-shadow: inset 0 0 60px rgba(255,255,255,0.08), 0 30px 80px rgba(0,0,0,0.32);
+      display: grid;
+      place-items: center;
+      padding: 34px;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .visual-card::after {
+      content: "CLUB";
+      position: absolute;
+      font-size: 120px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.06);
+      transform: rotate(-16deg);
+    }
+
+    .visual-card strong {
+      position: relative;
+      font-size: clamp(40px, 7vw, 90px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      text-shadow: 0 0 30px rgba(255,255,255,0.35);
+    }
+
+    .reservation {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .notice,
+    .contact {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      padding: 34px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.30);
+    }
+
+    .notice h3,
+    .contact h3 {
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .notice ul {
+      padding-left: 20px;
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    .contact p {
+      color: var(--muted);
+      line-height: 2;
+      font-size: 16px;
+    }
+
+    .contact strong {
+      color: #fff;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 34px 7%;
+      border-top: 1px solid var(--line);
+      color: #aaa3bc;
+      background: rgba(5,3,10,0.72);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        align-items: flex-start;
+        gap: 18px;
+        flex-direction: column;
+      }
+
+      nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .stats,
+      .grid,
+      .lineup,
+      .reservation {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .schedule-row span {
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        min-height: 82vh;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 70px 6%;
+      }
+
+      .card,
+      .notice,
+      .contact {
+        border-radius: 22px;
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
 
-    <header>
-        <h1>ITAEWON NIGHT</h1>
-        <nav>
-            <a href="#about">소개</a>
-            <a href="#events">이벤트</a>
-            <a href="#reservation">예약</a>
-            <a href="#location">위치</a>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">ITAEWON NIGHT</div>
+    <nav>
+      <a href="#about">소개</a>
+      <a href="#events">이벤트</a>
+      <a href="#lineup">라인업</a>
+      <a href="#reservation" class="nav-btn">예약</a>
+    </nav>
+  </header>
 
-    <div class="hero">
-        <div>
-            <h2>SEOUL NIGHT STARTS HERE</h2>
-            <p>이태원의 밤을 가장 강렬하게 즐기는 공간</p>
-            <button>예약 문의</button>
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="badge">SEOUL · ITAEWON · PREMIUM NIGHT CLUB</div>
+        <h1>Own The <span>Night</span></h1>
+        <p>
+          이태원의 중심에서 펼쳐지는 네온 사운드, 프리미엄 테이블, 게스트 DJ 퍼포먼스.
+          강한 비주얼과 빠른 예약 동선을 갖춘 클럽 랜딩 페이지입니다.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#reservation" class="btn primary">테이블 예약하기</a>
+          <a href="#events" class="btn secondary">이번 주 이벤트 보기</a>
         </div>
-    </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>21:00</strong>
+            <small>OPEN TIME</small>
+          </div>
+          <div class="stat">
+            <strong>3F</strong>
+            <small>LOUNGE · BAR · DANCE</small>
+          </div>
+          <div class="stat">
+            <strong>VIP</strong>
+            <small>TABLE RESERVATION</small>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="about">
-        <h2>About Us</h2>
-        <div class="about">
-            <p>
-                ITAEWON NIGHT는 서울 이태원 중심부에 위치한 프리미엄 클럽입니다.
-                감각적인 사운드, 세련된 조명, 다양한 DJ 라인업을 통해
-                매주 새로운 분위기의 나이트라이프를 제공합니다.
-            </p>
-        </div>
+      <div class="section-head">
+        <div class="eyebrow">About</div>
+        <h2>이태원의 밤을 위한 강한 첫 화면</h2>
+        <p>
+          ITAEWON NIGHT는 강렬한 네온 컬러, 유리 질감의 카드, 반응형 레이아웃을 적용한
+          클럽 홍보용 단일 HTML 홈페이지입니다. 실제 운영 시에는 상호, 주소, 사업자 정보,
+          출입 제한 안내 등을 실제 정보로 교체해야 합니다.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Neon Sound</h3>
+          <p>힙합, EDM, 하우스 기반의 주말 파티 콘셉트를 전면에 배치했습니다.</p>
+          <span class="tag">Main Floor</span>
+        </article>
+
+        <article class="card">
+          <h3>VIP Table</h3>
+          <p>예약 버튼을 상단과 메인 화면에 중복 배치하여 문의 전환을 높이도록 구성했습니다.</p>
+          <span class="tag">Reservation</span>
+        </article>
+
+        <article class="card">
+          <h3>Guest DJ</h3>
+          <p>라인업, 이벤트, 스페셜 게스트를 구분해 방문자가 핵심 정보를 빠르게 확인할 수 있습니다.</p>
+          <span class="tag">Weekly Event</span>
+        </article>
+      </div>
     </section>
 
     <section id="events">
-        <h2>Weekly Events</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Friday Hip-Hop Night</h3>
-                <p>매주 금요일, 국내외 힙합 트랙과 함께하는 강렬한 파티.</p>
-            </div>
+      <div class="section-head">
+        <div class="eyebrow">Events</div>
+        <h2>Weekly Party Program</h2>
+        <p>요일별 콘셉트를 명확히 보여주는 이벤트 카드 영역입니다.</p>
+      </div>
 
-            <div class="card">
-                <h3>Saturday EDM Party</h3>
-                <p>토요일 밤을 채우는 EDM, 하우스, 테크노 DJ 공연.</p>
-            </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Friday Hip-Hop</h3>
+          <p>국내외 힙합 트랙, 강한 베이스, 퍼포먼스 중심의 금요일 밤.</p>
+          <span class="tag">FRI 22:00</span>
+        </article>
 
-            <div class="card">
-                <h3>Special Guest DJ</h3>
-                <p>매월 특별 게스트 DJ 초청 공연 및 한정 이벤트 진행.</p>
-            </div>
+        <article class="card">
+          <h3>Saturday EDM</h3>
+          <p>EDM, 테크노, 하우스 사운드를 중심으로 구성된 메인 파티.</p>
+          <span class="tag">SAT 22:00</span>
+        </article>
+
+        <article class="card">
+          <h3>Special Night</h3>
+          <p>게스트 DJ, 브랜드 협업, 시즌 한정 프로모션을 위한 섹션입니다.</p>
+          <span class="tag">SPECIAL</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="lineup">
+      <div class="section-head">
+        <div class="eyebrow">Line-up</div>
+        <h2>Tonight Schedule</h2>
+        <p>시간대별 공연 및 플로어 운영 정보를 보여주는 영역입니다.</p>
+      </div>
+
+      <div class="lineup">
+        <div class="schedule">
+          <div class="schedule-row">
+            <time>21:00</time>
+            <h3>Door Open & Warm-up</h3>
+            <span>LOUNGE</span>
+          </div>
+          <div class="schedule-row">
+            <time>23:00</time>
+            <h3>Main DJ Set</h3>
+            <span>MAIN</span>
+          </div>
+          <div class="schedule-row">
+            <time>01:00</time>
+            <h3>Guest Performance</h3>
+            <span>VIP</span>
+          </div>
+          <div class="schedule-row">
+            <time>03:00</time>
+            <h3>Late Night Session</h3>
+            <span>AFTER</span>
+          </div>
         </div>
+
+        <div class="visual-card">
+          <strong>NEON<br />SEOUL<br />NIGHT</strong>
+        </div>
+      </div>
     </section>
 
     <section id="reservation">
-        <h2>Reservation</h2>
-        <div class="info">
-            <p>테이블 예약 및 단체 문의</p>
-            <p>전화: 02-0000-0000</p>
-            <p>이메일: reservation@itaewonnight.com</p>
-            <p>운영시간: 금·토 21:00 - 04:00</p>
+      <div class="section-head">
+        <div class="eyebrow">Reservation</div>
+        <h2>Table & Guest Inquiry</h2>
+        <p>실제 사용 전 연락처와 주소를 반드시 실제 정보로 교체하십시오.</p>
+      </div>
+
+      <div class="reservation">
+        <div class="notice">
+          <h3>입장 및 운영 안내</h3>
+          <ul>
+            <li>만 19세 미만 출입 제한 문구를 실제 운영정책에 맞게 명시해야 합니다.</li>
+            <li>신분증 확인, 드레스 코드, 예약 취소 기준을 별도 고지하는 것이 적절합니다.</li>
+            <li>개인정보를 수집하는 예약 폼을 붙일 경우 개인정보처리방침이 필요합니다.</li>
+            <li>영업장 주소, 사업자 정보, 통신판매 관련 정보는 실제 정보로 수정해야 합니다.</li>
+          </ul>
         </div>
-    </section>
 
-    <section id="location">
-        <h2>Location</h2>
-        <div class="info">
-            <p>서울특별시 용산구 이태원로 000</p>
-            <p>지하철 6호선 이태원역 인근</p>
+        <div class="contact">
+          <h3>Contact</h3>
+          <p><strong>전화</strong> 02-0000-0000</p>
+          <p><strong>이메일</strong> reservation@itaewonnight.com</p>
+          <p><strong>주소</strong> 서울특별시 용산구 이태원로 000</p>
+          <p><strong>운영</strong> 금·토 21:00 - 04:00</p>
+          <a href="mailto:reservation@itaewonnight.com" class="btn primary">예약 메일 보내기</a>
         </div>
+      </div>
     </section>
+  </main>
 
-    <footer>
-        <p>&copy; 2026 ITAEWON NIGHT. All Rights Reserved.</p>
-    </footer>
-
+  <footer>
+    <p>© 2026 ITAEWON NIGHT. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
