@@ -4,26 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#08030f" />
-  <title>ITAEWON NIGHT | Mobile Club Page</title>
+
+  <title>이태원 클럽 ITAEWON NIGHT | 서울 이태원 프리미엄 클럽 예약</title>
+  <meta name="description" content="이태원 클럽 ITAEWON NIGHT는 서울 용산구 이태원 중심의 프리미엄 나이트클럽입니다. 힙합, EDM, 하우스, 게스트 DJ, VIP 테이블 예약, 단체 예약, 주말 파티 정보를 제공합니다." />
+  <meta name="keywords" content="이태원 클럽, 이태원 나이트클럽, 이태원 라운지, 이태원 바, 서울 클럽, 용산 클럽, 이태원 파티, 이태원 EDM, 이태원 힙합클럽, 이태원 VIP 테이블 예약" />
+  <meta name="author" content="ITAEWON NIGHT" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://example.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="이태원 클럽 ITAEWON NIGHT | 서울 이태원 프리미엄 클럽 예약" />
+  <meta property="og:description" content="이태원 중심의 프리미엄 클럽. 힙합, EDM, 게스트 DJ, VIP 테이블 예약, 단체 예약 안내." />
+  <meta property="og:site_name" content="ITAEWON NIGHT" />
+  <meta property="og:url" content="https://example.com/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="이태원 클럽 ITAEWON NIGHT" />
+  <meta name="twitter:description" content="서울 이태원 프리미엄 클럽 예약, 이벤트, 라인업, VIP 테이블 안내." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NightClub",
+    "name": "ITAEWON NIGHT",
+    "alternateName": "이태원 나이트",
+    "description": "서울 용산구 이태원 중심의 프리미엄 나이트클럽. 힙합, EDM, 하우스, 게스트 DJ, VIP 테이블 예약과 주말 파티 정보를 제공합니다.",
+    "url": "https://example.com/",
+    "telephone": "02-0000-0000",
+    "email": "reservation@itaewonnight.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "이태원로 000",
+      "addressLocality": "용산구",
+      "addressRegion": "서울특별시",
+      "addressCountry": "KR"
+    },
+    "areaServed": ["서울", "이태원", "용산구", "한남동", "녹사평"],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Friday", "Saturday"],
+        "opens": "21:00",
+        "closes": "04:00"
+      }
+    ],
+    "priceRange": "$$",
+    "servesCuisine": "Bar"
+  }
+  </script>
 
   <style>
     :root {
       --bg: #07020f;
-      --panel: rgba(255, 255, 255, 0.085);
-      --panel-strong: rgba(255, 255, 255, 0.14);
+      --panel: rgba(255, 255, 255, 0.088);
+      --panel-strong: rgba(255, 255, 255, 0.145);
       --line: rgba(255, 255, 255, 0.18);
       --text: #ffffff;
-      --sub: #d8d1e8;
-      --muted: #a79ebc;
+      --sub: #ddd5ed;
+      --muted: #a99fbd;
       --pink: #ff006e;
       --purple: #8338ec;
       --blue: #3a86ff;
       --yellow: #ffbe0b;
       --green: #19f7c5;
+      --kakao: #fee500;
+      --kakao-text: #191919;
+      --sms: #22c55e;
+      --sms-dark: #0f7a39;
       --shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
-      --radius-lg: 28px;
-      --radius-md: 20px;
       --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --cta-height: 92px;
     }
 
     * {
@@ -41,11 +92,12 @@
       color: var(--text);
       font-family: Arial, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
       background:
-        radial-gradient(circle at 15% 0%, rgba(255, 0, 110, 0.48), transparent 32%),
+        radial-gradient(circle at 15% 0%, rgba(255, 0, 110, 0.50), transparent 32%),
         radial-gradient(circle at 90% 8%, rgba(58, 134, 255, 0.42), transparent 30%),
-        radial-gradient(circle at 45% 78%, rgba(131, 56, 236, 0.48), transparent 38%),
+        radial-gradient(circle at 48% 78%, rgba(131, 56, 236, 0.50), transparent 38%),
         var(--bg);
       overflow-x: hidden;
+      word-break: keep-all;
     }
 
     body::before {
@@ -55,8 +107,8 @@
       pointer-events: none;
       z-index: 0;
       background:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.034) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.034) 1px, transparent 1px);
       background-size: 34px 34px;
       mask-image: linear-gradient(to bottom, rgba(0,0,0,0.86), transparent 74%);
     }
@@ -72,8 +124,12 @@
         rgba(255,255,255,0.035),
         transparent 16%,
         transparent 80%,
-        rgba(0,0,0,0.38)
+        rgba(0,0,0,0.42)
       );
+    }
+
+    a {
+      color: inherit;
     }
 
     .mobile-shell {
@@ -82,7 +138,23 @@
       width: min(100%, 480px);
       min-height: 100vh;
       margin: 0 auto;
-      padding-bottom: calc(92px + var(--safe-bottom));
+      padding-bottom: calc(var(--cta-height) + 28px + var(--safe-bottom));
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 12px;
+      z-index: 99;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #fff;
+      color: #000;
+      font-weight: 900;
+    }
+
+    .skip-link:focus {
+      left: 12px;
     }
 
     .topbar {
@@ -95,8 +167,8 @@
       min-height: 66px;
       padding: 14px 18px;
       border-bottom: 1px solid var(--line);
-      background: rgba(7, 2, 15, 0.72);
-      backdrop-filter: blur(20px);
+      background: rgba(7, 2, 15, 0.76);
+      backdrop-filter: blur(22px);
     }
 
     .brand {
@@ -107,15 +179,27 @@
     }
 
     .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 13px;
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
       background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
-      box-shadow: 0 0 22px rgba(255, 0, 110, 0.62);
+      box-shadow: 0 0 22px rgba(255, 0, 110, 0.64);
       display: grid;
       place-items: center;
       font-weight: 900;
       letter-spacing: -1px;
+      animation: logoPulse 2.6s ease-in-out infinite alternate;
+    }
+
+    @keyframes logoPulse {
+      from {
+        transform: scale(1);
+        box-shadow: 0 0 18px rgba(255, 0, 110, 0.50);
+      }
+      to {
+        transform: scale(1.06);
+        box-shadow: 0 0 32px rgba(58, 134, 255, 0.68);
+      }
     }
 
     .brand-title {
@@ -137,64 +221,105 @@
       font-weight: 700;
     }
 
-    .top-cta {
+    .top-status {
       flex: 0 0 auto;
-      min-height: 42px;
-      padding: 0 15px;
-      border: 1px solid rgba(255,255,255,0.24);
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid rgba(255,255,255,0.22);
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--pink), var(--purple));
+      background: rgba(255,255,255,0.08);
       color: #fff;
-      box-shadow: 0 0 20px rgba(255,0,110,0.42);
       text-decoration: none;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 900;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 7px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 14px var(--green);
+      animation: dotBlink 1.35s ease-in-out infinite;
+    }
+
+    @keyframes dotBlink {
+      0%, 100% {
+        opacity: 0.38;
+        transform: scale(0.82);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    main {
+      position: relative;
     }
 
     .hero {
       position: relative;
-      padding: 42px 18px 28px;
-      min-height: 640px;
+      padding: 42px 18px 30px;
+      min-height: 650px;
       display: flex;
       align-items: center;
+      overflow: hidden;
     }
 
     .orb {
       position: absolute;
       border-radius: 50%;
       filter: blur(42px);
-      opacity: 0.75;
+      opacity: 0.78;
       pointer-events: none;
     }
 
     .orb.one {
-      width: 180px;
-      height: 180px;
+      width: 185px;
+      height: 185px;
       top: 76px;
-      left: -62px;
+      left: -64px;
       background: var(--pink);
-      animation: pulse 4.5s ease-in-out infinite alternate;
+      animation: floatOne 5.2s ease-in-out infinite alternate;
     }
 
     .orb.two {
-      width: 210px;
-      height: 210px;
-      right: -84px;
-      bottom: 66px;
+      width: 218px;
+      height: 218px;
+      right: -88px;
+      bottom: 72px;
       background: var(--blue);
-      animation: pulse 5.4s ease-in-out infinite alternate-reverse;
+      animation: floatTwo 6.1s ease-in-out infinite alternate-reverse;
     }
 
-    @keyframes pulse {
-      from {
-        transform: translateY(0) scale(1);
-      }
-      to {
-        transform: translateY(24px) scale(1.16);
-      }
+    .orb.three {
+      width: 130px;
+      height: 130px;
+      left: 38%;
+      top: 45%;
+      background: var(--yellow);
+      opacity: 0.22;
+      animation: floatThree 4.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatOne {
+      from { transform: translateY(0) translateX(0) scale(1); }
+      to { transform: translateY(26px) translateX(12px) scale(1.16); }
+    }
+
+    @keyframes floatTwo {
+      from { transform: translateY(0) translateX(0) scale(1); }
+      to { transform: translateY(-24px) translateX(-12px) scale(1.12); }
+    }
+
+    @keyframes floatThree {
+      from { transform: rotate(0deg) scale(0.92); }
+      to { transform: rotate(20deg) scale(1.22); }
     }
 
     .hero-inner {
@@ -219,14 +344,6 @@
       box-shadow: inset 0 0 18px rgba(255,255,255,0.06);
     }
 
-    .live-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 14px var(--green);
-    }
-
     h1 {
       margin: 22px 0 0;
       font-size: clamp(58px, 17vw, 88px);
@@ -238,6 +355,18 @@
         0 0 18px rgba(255,255,255,0.30),
         0 0 34px rgba(255,0,110,0.76),
         0 0 58px rgba(58,134,255,0.58);
+      animation: titleBreath 3.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes titleBreath {
+      from {
+        filter: brightness(1);
+        transform: translateY(0);
+      }
+      to {
+        filter: brightness(1.14);
+        transform: translateY(-3px);
+      }
     }
 
     h1 span {
@@ -246,58 +375,48 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      background-size: 220% auto;
+      animation: gradientMove 4.5s linear infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% center; }
+      100% { background-position: 220% center; }
     }
 
     .hero-copy {
       margin: 22px 0 0;
       color: var(--sub);
       font-size: 16px;
-      line-height: 1.72;
-      word-break: keep-all;
+      line-height: 1.76;
     }
 
-    .hero-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .btn {
-      min-height: 54px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      text-decoration: none;
-      color: #fff;
-      font-size: 15px;
-      font-weight: 900;
+    .text-link-row {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
-      transition: transform 0.22s, filter 0.22s;
+      margin-top: 18px;
     }
 
-    .btn:active {
-      transform: scale(0.98);
-    }
-
-    .btn.primary {
-      border: none;
-      background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
-      box-shadow: 0 18px 46px rgba(255,0,110,0.42);
-    }
-
-    .btn.secondary {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(18px);
+    .text-link-row a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.075);
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 900;
     }
 
     .quick-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      margin-top: 22px;
+      margin-top: 24px;
     }
 
     .stat {
@@ -330,8 +449,70 @@
       text-align: center;
     }
 
+    .equalizer {
+      display: grid;
+      grid-template-columns: repeat(18, 1fr);
+      align-items: end;
+      gap: 4px;
+      height: 52px;
+      margin-top: 24px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+
+    .equalizer span {
+      display: block;
+      width: 100%;
+      min-height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(to top, var(--pink), var(--yellow));
+      animation: beat 0.92s ease-in-out infinite alternate;
+      opacity: 0.88;
+    }
+
+    .equalizer span:nth-child(2n) { animation-duration: 0.68s; background: linear-gradient(to top, var(--blue), var(--green)); }
+    .equalizer span:nth-child(3n) { animation-duration: 1.08s; background: linear-gradient(to top, var(--purple), var(--pink)); }
+    .equalizer span:nth-child(4n) { animation-delay: 0.18s; }
+    .equalizer span:nth-child(5n) { animation-delay: 0.32s; }
+
+    @keyframes beat {
+      from { height: 9px; }
+      to { height: 42px; }
+    }
+
+    .ticker {
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.055);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tickerMove 22s linear infinite;
+    }
+
+    .ticker-track span {
+      display: inline-block;
+      padding: 12px 18px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.9px;
+      white-space: nowrap;
+    }
+
+    @keyframes tickerMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
     section {
-      padding: 34px 18px;
+      padding: 36px 18px;
       scroll-margin-top: 76px;
     }
 
@@ -351,17 +532,17 @@
     h2 {
       margin: 0;
       font-size: 33px;
-      line-height: 1.02;
+      line-height: 1.04;
       letter-spacing: -1.6px;
       font-weight: 900;
     }
 
-    .section-desc {
+    .section-desc,
+    .seo-copy {
       margin: 12px 0 0;
       color: var(--sub);
       font-size: 15px;
-      line-height: 1.7;
-      word-break: keep-all;
+      line-height: 1.78;
     }
 
     .card-stack {
@@ -374,7 +555,7 @@
       overflow: hidden;
       padding: 20px;
       border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
+      border-radius: 28px;
       background: linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.055));
       backdrop-filter: blur(18px);
       box-shadow: var(--shadow);
@@ -425,8 +606,15 @@
       margin: 14px 0 0;
       color: var(--sub);
       font-size: 14px;
-      line-height: 1.72;
-      word-break: keep-all;
+      line-height: 1.76;
+    }
+
+    .text-list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--sub);
+      font-size: 14px;
+      line-height: 1.86;
     }
 
     .swipe-row {
@@ -445,11 +633,11 @@
 
     .mini-card {
       flex: 0 0 78%;
-      min-height: 210px;
+      min-height: 226px;
       scroll-snap-align: start;
       padding: 20px;
       border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
+      border-radius: 28px;
       background: linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.055));
       backdrop-filter: blur(18px);
       box-shadow: 0 18px 52px rgba(0,0,0,0.34);
@@ -469,7 +657,7 @@
       margin: 13px 0 0;
       color: var(--sub);
       font-size: 14px;
-      line-height: 1.65;
+      line-height: 1.68;
     }
 
     .mini-card strong {
@@ -481,7 +669,7 @@
     .schedule {
       overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
+      border-radius: 28px;
       background: var(--panel);
       backdrop-filter: blur(18px);
       box-shadow: var(--shadow);
@@ -517,14 +705,14 @@
       margin: 8px 0 0;
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .visual-block {
-      min-height: 260px;
+      min-height: 270px;
       margin-top: 14px;
       border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
+      border-radius: 28px;
       background:
         linear-gradient(135deg, rgba(255,0,110,0.24), rgba(58,134,255,0.24)),
         radial-gradient(circle at 30% 30%, rgba(255,190,11,0.36), transparent 28%),
@@ -537,32 +725,38 @@
       position: relative;
     }
 
-    .visual-block::after {
-      content: "MOBILE ONLY";
+    .visual-block::before {
+      content: "";
       position: absolute;
-      font-size: 58px;
+      width: 120%;
+      height: 120%;
+      background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.20), transparent, rgba(255,0,110,0.22), transparent);
+      animation: spinLight 9s linear infinite;
+    }
+
+    .visual-block::after {
+      content: "SEOUL NIGHT";
+      position: absolute;
+      font-size: 60px;
       font-weight: 900;
       color: rgba(255,255,255,0.07);
       transform: rotate(-18deg);
       white-space: nowrap;
     }
 
+    @keyframes spinLight {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
     .visual-block strong {
       position: relative;
+      z-index: 1;
       font-size: 50px;
       line-height: 0.9;
       letter-spacing: -2.6px;
       text-transform: uppercase;
       text-shadow: 0 0 26px rgba(255,255,255,0.34);
-    }
-
-    .notice-list {
-      margin: 14px 0 0;
-      padding-left: 18px;
-      color: var(--sub);
-      font-size: 14px;
-      line-height: 1.82;
-      word-break: keep-all;
     }
 
     .contact-box {
@@ -594,51 +788,99 @@
       text-align: right;
     }
 
-    .bottom-nav {
-      position: fixed;
-      left: 50%;
-      bottom: 0;
-      z-index: 30;
-      width: min(100%, 480px);
-      transform: translateX(-50%);
-      padding: 10px 12px calc(10px + var(--safe-bottom));
-      border-top: 1px solid var(--line);
-      background: rgba(7, 2, 15, 0.82);
-      backdrop-filter: blur(24px);
-    }
-
-    .bottom-nav-inner {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-
-    .bottom-nav a {
-      min-height: 52px;
-      border-radius: 18px;
-      color: var(--sub);
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: 900;
-      display: grid;
-      place-items: center;
-      gap: 3px;
-      background: rgba(255,255,255,0.055);
-      border: 1px solid rgba(255,255,255,0.10);
-    }
-
-    .bottom-nav a.primary-tab {
-      color: #fff;
-      background: linear-gradient(135deg, var(--pink), var(--purple));
-      box-shadow: 0 0 20px rgba(255,0,110,0.38);
-    }
-
     .footer {
-      padding: 26px 18px 0;
+      padding: 28px 18px 0;
       color: var(--muted);
       text-align: center;
       font-size: 12px;
-      line-height: 1.6;
+      line-height: 1.65;
+    }
+
+    .fixed-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      z-index: 999;
+      width: min(100%, 480px);
+      transform: translateX(-50%);
+      padding: 10px 12px calc(10px + var(--safe-bottom));
+      border-top: 1px solid rgba(255,255,255,0.20);
+      background: rgba(7, 2, 15, 0.84);
+      backdrop-filter: blur(26px);
+      box-shadow: 0 -18px 44px rgba(0,0,0,0.42);
+    }
+
+    .fixed-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(254,229,0,0.16), rgba(34,197,94,0.16));
+      opacity: 0.75;
+    }
+
+    .fixed-cta-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .cta-button {
+      min-height: 58px;
+      border-radius: 20px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-weight: 900;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.32);
+      animation: ctaFloat 2.4s ease-in-out infinite alternate;
+    }
+
+    .cta-button:active {
+      transform: scale(0.98);
+    }
+
+    .cta-button.kakao {
+      background: var(--kakao);
+      color: var(--kakao-text);
+      animation-delay: 0s;
+    }
+
+    .cta-button.sms {
+      background: linear-gradient(135deg, var(--sms), var(--sms-dark));
+      color: #fff;
+      animation-delay: 0.32s;
+    }
+
+    .cta-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.28);
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .cta-button.kakao .cta-icon {
+      background: rgba(25,25,25,0.10);
+    }
+
+    @keyframes ctaFloat {
+      from {
+        transform: translateY(0);
+        filter: brightness(1);
+      }
+      to {
+        transform: translateY(-3px);
+        filter: brightness(1.06);
+      }
     }
 
     @media (min-width: 481px) {
@@ -684,49 +926,74 @@
       .stat small {
         font-size: 9px;
       }
+
+      .cta-button {
+        min-height: 56px;
+        font-size: 15px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">본문으로 바로가기</a>
+
   <div class="mobile-shell">
     <header class="topbar">
-      <div class="brand">
+      <div class="brand" aria-label="ITAEWON NIGHT 브랜드">
         <div class="brand-mark">IN</div>
         <div class="brand-title">
           <strong>ITAEWON NIGHT</strong>
-          <span>Premium Club Seoul</span>
+          <span>이태원 프리미엄 클럽</span>
         </div>
       </div>
-      <a href="#reservation" class="top-cta">예약</a>
+      <div class="top-status" aria-label="오늘 영업 상태">
+        <span class="status-dot"></span>
+        OPEN
+      </div>
     </header>
 
-    <main>
-      <section class="hero" id="home">
+    <main id="main-content">
+      <section class="hero" id="home" aria-labelledby="hero-title">
         <div class="orb one"></div>
         <div class="orb two"></div>
+        <div class="orb three"></div>
 
         <div class="hero-inner">
           <div class="pill">
-            <span class="live-dot"></span>
-            TONIGHT OPEN · 21:00
+            <span class="status-dot"></span>
+            이태원 클럽 · 오늘 21:00 오픈
           </div>
 
-          <h1>
-            Own
-            <span>The Night</span>
+          <h1 id="hero-title">
+            Itaewon
+            <span>Night Club</span>
           </h1>
 
           <p class="hero-copy">
-            이태원의 중심에서 시작되는 네온 사운드. 모바일 화면에서 바로 예약, 이벤트, 라인업을 확인하도록 설계한 클럽 전용 랜딩 페이지입니다.
+            ITAEWON NIGHT는 서울 용산구 이태원 중심부에 위치한 프리미엄 클럽 콘셉트의 모바일 홈페이지입니다.
+            이태원 클럽 예약, 이태원 VIP 테이블 문의, 주말 파티, 힙합 파티, EDM 파티, 게스트 DJ 공연 정보를
+            모바일 화면에서 빠르게 확인할 수 있도록 구성했습니다.
           </p>
 
-          <div class="hero-actions">
-            <a href="#reservation" class="btn primary">VIP 테이블 예약하기</a>
-            <a href="#events" class="btn secondary">이번 주 파티 보기</a>
+          <div class="text-link-row" aria-label="주요 페이지 이동">
+            <a href="#club-info">클럽 소개</a>
+            <a href="#events">이벤트</a>
+            <a href="#lineup">라인업</a>
+            <a href="#reservation">예약 안내</a>
           </div>
 
-          <div class="quick-stats">
+          <div class="quick-stats" aria-label="핵심 영업 정보">
             <div class="stat">
               <strong>21:00</strong>
               <small>OPEN</small>
@@ -736,153 +1003,224 @@
               <small>TABLE</small>
             </div>
             <div class="stat">
-              <strong>3F</strong>
-              <small>LOUNGE</small>
+              <strong>SEOUL</strong>
+              <small>ITAEWON</small>
             </div>
+          </div>
+
+          <div class="equalizer" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
           </div>
         </div>
       </section>
 
-      <section id="about">
+      <div class="ticker" aria-label="이태원 클럽 주요 키워드">
+        <div class="ticker-track">
+          <span>ITAEWON CLUB</span>
+          <span>SEOUL NIGHTLIFE</span>
+          <span>HIP-HOP PARTY</span>
+          <span>EDM NIGHT</span>
+          <span>VIP TABLE</span>
+          <span>GUEST DJ</span>
+          <span>ITAEWON CLUB</span>
+          <span>SEOUL NIGHTLIFE</span>
+          <span>HIP-HOP PARTY</span>
+          <span>EDM NIGHT</span>
+          <span>VIP TABLE</span>
+          <span>GUEST DJ</span>
+        </div>
+      </div>
+
+      <section id="club-info" aria-labelledby="club-info-title">
         <div class="section-head">
-          <div class="eyebrow">About</div>
-          <h2>모바일에서 먼저 보이는 클럽 홈페이지</h2>
+          <div class="eyebrow">Club Information</div>
+          <h2 id="club-info-title">이태원 클럽 예약과 방문 정보를 한 화면에</h2>
           <p class="section-desc">
-            작은 화면 기준으로 정보 밀도를 조정했습니다. 메뉴는 하단 고정 내비게이션으로 두고, 예약 버튼은 상단과 메인 CTA에 반복 배치했습니다.
+            이 페이지는 검색엔진이 읽을 수 있는 텍스트 중심 구조로 설계했습니다.
+            이미지에 의존하지 않고, 이태원 클럽의 위치, 운영시간, 음악 장르, 예약 방식, 테이블 문의,
+            입장 안내, 주말 이벤트 정보를 본문 텍스트로 명확히 기재했습니다.
           </p>
         </div>
 
         <div class="card-stack">
           <article class="glass-card">
             <div class="card-top">
-              <h3>Neon Sound</h3>
-              <span class="tag">MAIN</span>
+              <h3>이태원 중심 입지</h3>
+              <span class="tag">LOCATION</span>
             </div>
-            <p>힙합, EDM, 하우스 기반의 주말 파티 콘셉트를 강한 비주얼로 표현했습니다.</p>
+            <p>
+              ITAEWON NIGHT는 서울 이태원 일대 방문자를 대상으로 한 클럽 랜딩 페이지입니다.
+              실제 영업용으로 사용할 경우 주소, 지하철역 출구, 주차 가능 여부, 주변 랜드마크,
+              도보 이동 시간 등을 구체적으로 입력하는 것이 검색 노출과 방문 전환에 유리합니다.
+            </p>
           </article>
 
           <article class="glass-card">
             <div class="card-top">
-              <h3>VIP Table</h3>
-              <span class="tag">BOOKING</span>
+              <h3>모바일 우선 예약 동선</h3>
+              <span class="tag">MOBILE</span>
             </div>
-            <p>모바일 방문자가 스크롤 중에도 예약 동선을 놓치지 않도록 구성했습니다.</p>
+            <p>
+              방문자가 페이지 어느 위치에 있더라도 하단의 카카오톡 문의 버튼과 문자 문의 버튼이 항상 고정되어 보입니다.
+              메뉴를 길게 탐색하지 않아도 즉시 예약 문의, 테이블 문의, 단체 문의로 연결될 수 있도록 구성했습니다.
+            </p>
+          </article>
+
+          <article class="glass-card">
+            <div class="card-top">
+              <h3>텍스트 기반 SEO 구조</h3>
+              <span class="tag">SEO</span>
+            </div>
+            <p>
+              제목 태그, 설명 메타태그, 오픈그래프 태그, 트위터 카드, 구조화 데이터, 의미 있는 heading 구조,
+              내부 앵커 링크, 본문 키워드 설명을 포함했습니다. 이태원 클럽, 이태원 나이트클럽, 서울 클럽,
+              VIP 테이블 예약 등 검색 의도가 분명한 문구를 자연스럽게 배치했습니다.
+            </p>
           </article>
         </div>
       </section>
 
-      <section id="events">
+      <section id="events" aria-labelledby="events-title">
         <div class="section-head">
-          <div class="eyebrow">Events</div>
-          <h2>Swipe Party Cards</h2>
-          <p class="section-desc">이벤트는 모바일에서 넘겨 보기 좋은 가로 스와이프 카드로 배치했습니다.</p>
+          <div class="eyebrow">Weekly Events</div>
+          <h2 id="events-title">이태원 주말 클럽 이벤트</h2>
+          <p class="section-desc">
+            이벤트 정보는 모바일에서 넘겨 보기 쉬운 카드 방식으로 구성했습니다.
+            각 카드에는 요일, 음악 장르, 파티 콘셉트, 예약 유도 문구를 텍스트로 넣어 검색엔진과 방문자가 모두 이해하기 쉽게 설계했습니다.
+          </p>
         </div>
 
-        <div class="swipe-row" aria-label="이벤트 카드 목록">
+        <div class="swipe-row" aria-label="이태원 클럽 이벤트 카드 목록">
           <article class="mini-card">
             <div>
-              <strong>FRI 22:00</strong>
-              <h3>Friday Hip-Hop</h3>
-              <p>국내외 힙합 트랙과 강한 베이스 중심의 금요일 밤.</p>
+              <strong>FRIDAY 22:00</strong>
+              <h3>Friday Hip-Hop Night</h3>
+              <p>
+                금요일 밤에는 힙합, 알앤비, 트랩 사운드를 중심으로 한 이태원 힙합 클럽 파티를 운영합니다.
+                친구 모임, 생일 파티, 단체 예약에 적합한 콘셉트입니다.
+              </p>
             </div>
             <span class="tag">HIP-HOP</span>
           </article>
 
           <article class="mini-card">
             <div>
-              <strong>SAT 22:00</strong>
-              <h3>Saturday EDM</h3>
-              <p>EDM, 하우스, 테크노 사운드 기반의 메인 파티.</p>
+              <strong>SATURDAY 22:00</strong>
+              <h3>Saturday EDM Party</h3>
+              <p>
+                토요일 밤에는 EDM, 하우스, 테크노 기반의 메인 플로어 파티를 구성합니다.
+                강한 조명, 빠른 비트, 피크타임 DJ 세션을 강조한 이벤트입니다.
+              </p>
             </div>
             <span class="tag">EDM</span>
           </article>
 
           <article class="mini-card">
             <div>
-              <strong>SPECIAL</strong>
-              <h3>Guest DJ Night</h3>
-              <p>게스트 DJ, 브랜드 협업, 시즌 한정 프로모션.</p>
+              <strong>SPECIAL NIGHT</strong>
+              <h3>Guest DJ Session</h3>
+              <p>
+                게스트 DJ 초청, 브랜드 협업, 시즌 한정 파티, 프라이빗 이벤트 등 특별 행사를 공지할 수 있는 영역입니다.
+                실제 라인업이 확정되면 DJ명과 공연 시간을 구체적으로 입력하십시오.
+              </p>
             </div>
             <span class="tag">GUEST</span>
           </article>
         </div>
       </section>
 
-      <section id="lineup">
+      <section id="lineup" aria-labelledby="lineup-title">
         <div class="section-head">
-          <div class="eyebrow">Line-up</div>
-          <h2>Tonight Schedule</h2>
-          <p class="section-desc">시간대별 운영 정보를 한 손 조작에 맞춰 세로형 리스트로 구성했습니다.</p>
+          <div class="eyebrow">Tonight Line-up</div>
+          <h2 id="lineup-title">오늘 밤 클럽 운영 시간표</h2>
+          <p class="section-desc">
+            시간표는 방문자가 모바일에서 빠르게 확인할 수 있도록 세로형 리스트로 구성했습니다.
+            실제 운영 시에는 DJ명, 공연 장르, 입장 마감 시간, 테이블 예약 마감 시간을 추가하는 것이 좋습니다.
+          </p>
         </div>
 
         <div class="schedule">
           <div class="schedule-item">
-            <time>21:00</time>
+            <time datetime="21:00">21:00</time>
             <div>
-              <h3>Door Open</h3>
-              <p>입장, 라운지, 워밍업 사운드.</p>
+              <h3>Door Open & Lounge Warm-up</h3>
+              <p>이태원 클럽 입장 시작, 라운지 워밍업 사운드, 바 운영, 테이블 착석 안내.</p>
             </div>
           </div>
 
           <div class="schedule-item">
-            <time>23:00</time>
+            <time datetime="23:00">23:00</time>
             <div>
               <h3>Main DJ Set</h3>
-              <p>메인 플로어 피크타임 세션.</p>
+              <p>메인 플로어 DJ 세션, 힙합과 EDM 중심의 피크타임 파티 진행.</p>
             </div>
           </div>
 
           <div class="schedule-item">
-            <time>01:00</time>
+            <time datetime="01:00">01:00</time>
             <div>
               <h3>Guest Performance</h3>
-              <p>스페셜 게스트 및 VIP 세션.</p>
+              <p>스페셜 게스트 DJ 또는 퍼포먼스 세션, VIP 테이블 고객 중심의 메인 이벤트.</p>
             </div>
           </div>
 
           <div class="schedule-item">
-            <time>03:00</time>
+            <time datetime="03:00">03:00</time>
             <div>
               <h3>Late Night Session</h3>
-              <p>애프터 무드의 라스트 플로어.</p>
+              <p>새벽 시간대 애프터 무드의 클럽 세션, 라스트 오더 및 마감 안내 가능.</p>
             </div>
           </div>
         </div>
 
-        <div class="visual-block">
+        <div class="visual-block" aria-hidden="true">
           <strong>NEON<br />SEOUL<br />NIGHT</strong>
         </div>
       </section>
 
-      <section id="reservation">
+      <section id="reservation" aria-labelledby="reservation-title">
         <div class="section-head">
-          <div class="eyebrow">Reservation</div>
-          <h2>Table & Guest Inquiry</h2>
-          <p class="section-desc">실제 영업용 사용 전에는 아래 연락처, 주소, 운영정책을 실제 정보로 교체해야 합니다.</p>
+          <div class="eyebrow">Reservation Guide</div>
+          <h2 id="reservation-title">카카오톡과 문자로 빠른 예약 문의</h2>
+          <p class="section-desc">
+            하단 고정 버튼은 카카오톡 문의와 문자 문의 두 가지로만 구성했습니다.
+            방문자는 페이지 첫 화면, 이벤트 영역, 라인업 영역, 예약 안내 영역 어디에 있더라도 동일하게 문의 버튼을 볼 수 있습니다.
+          </p>
         </div>
 
         <article class="glass-card">
           <div class="card-top">
-            <h3>입장 및 고지사항</h3>
-            <span class="tag">NOTICE</span>
+            <h3>VIP 테이블 예약 안내</h3>
+            <span class="tag">BOOKING</span>
           </div>
-
-          <ul class="notice-list">
-            <li>만 19세 미만 출입 제한 문구를 실제 운영정책에 맞게 명시해야 합니다.</li>
-            <li>신분증 확인, 드레스 코드, 예약 취소 기준을 별도 고지하는 것이 적절합니다.</li>
-            <li>예약 폼으로 개인정보를 수집할 경우 개인정보처리방침이 필요합니다.</li>
+          <p>
+            이태원 클럽 VIP 테이블 예약은 방문 날짜, 인원수, 선호 좌석, 주류 구성, 생일 파티 여부,
+            단체 방문 여부를 기준으로 안내할 수 있습니다. 실제 사용 시에는 예약금, 취소 기준,
+            노쇼 정책, 입장 가능 신분증, 드레스 코드, 미성년자 출입 제한 문구를 명확히 기재하십시오.
+          </p>
+          <ul class="text-list">
+            <li>문의 가능 항목: 테이블 예약, 단체 예약, 생일 파티, 게스트 입장, 이벤트 문의</li>
+            <li>권장 기재 정보: 방문 날짜, 도착 예정 시간, 인원수, 대표자 이름, 연락처</li>
+            <li>운영 정보: 금요일·토요일 21:00부터 04:00까지 운영하는 예시 구조</li>
           </ul>
         </article>
 
-        <div class="contact-box">
+        <div class="contact-box" aria-label="클럽 연락처와 위치 정보">
           <div class="contact-row">
             <span>전화</span>
             <strong>02-0000-0000</strong>
           </div>
 
           <div class="contact-row">
-            <span>이메일</span>
-            <strong>reservation@itaewonnight.com</strong>
+            <span>문자</span>
+            <strong>010-0000-0000</strong>
+          </div>
+
+          <div class="contact-row">
+            <span>카카오톡</span>
+            <strong>채널 상담 링크 입력</strong>
           </div>
 
           <div class="contact-row">
@@ -895,25 +1233,58 @@
             <strong>금·토 21:00 - 04:00</strong>
           </div>
         </div>
+      </section>
 
-        <div class="hero-actions">
-          <a href="tel:0200000000" class="btn primary">전화 예약하기</a>
-          <a href="mailto:reservation@itaewonnight.com" class="btn secondary">메일 문의하기</a>
-        </div>
-
-        <div class="footer">
-          © 2026 ITAEWON NIGHT. All Rights Reserved.
+      <section id="seo-content" aria-labelledby="seo-title">
+        <div class="section-head">
+          <div class="eyebrow">SEO Text Area</div>
+          <h2 id="seo-title">이태원 클럽 검색 노출을 위한 본문 영역</h2>
+          <p class="seo-copy">
+            서울 이태원은 다양한 바, 라운지, 펍, 클럽, 라이브 음악 공간이 밀집한 지역입니다.
+            이태원 클럽을 찾는 방문자는 주로 주말 파티, 힙합 클럽, EDM 클럽, 외국인 방문객이 많은 클럽,
+            단체 예약이 가능한 클럽, VIP 테이블 예약이 가능한 클럽, 생일 파티가 가능한 장소를 검색합니다.
+            본 페이지는 이러한 검색 의도를 고려하여 이태원 클럽 예약, 서울 클럽 추천, 용산구 나이트라이프,
+            이태원 주말 파티, 이태원 게스트 DJ, 이태원 VIP 테이블이라는 문구를 문맥 안에서 자연스럽게 배치했습니다.
+          </p>
+          <p class="seo-copy">
+            실제 홈페이지로 배포할 때는 상호명, 실제 주소, 사업자등록 정보, 영업 허가 관련 정보,
+            개인정보처리방침, 예약 취소 규정, 청소년 출입 제한 안내, 주류 판매 관련 고지,
+            지도 링크, 실제 후기, 실제 사진의 대체 텍스트를 추가하는 것이 바람직합니다.
+            특히 검색엔진 최적화는 단순 키워드 반복보다 방문자가 실제로 필요한 정보를 정확히 제공하는 방식이 더 적절합니다.
+          </p>
         </div>
       </section>
+
+      <footer class="footer">
+        <p>
+          © 2026 ITAEWON NIGHT. All Rights Reserved.<br />
+          본 페이지는 이태원 클럽 모바일 홈페이지 예시입니다. 실제 영업용 사용 전 모든 사업자 정보와 예약 조건을 확인하십시오.
+        </p>
+      </footer>
     </main>
   </div>
 
-  <nav class="bottom-nav" aria-label="모바일 하단 메뉴">
-    <div class="bottom-nav-inner">
-      <a href="#home">홈</a>
-      <a href="#events">이벤트</a>
-      <a href="#lineup">라인업</a>
-      <a href="#reservation" class="primary-tab">예약</a>
+  <nav class="fixed-cta" aria-label="고정 문의 버튼">
+    <div class="fixed-cta-inner">
+      <a
+        class="cta-button kakao"
+        href="https://pf.kakao.com/_YOUR_CHANNEL/chat"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="카카오톡으로 이태원 클럽 예약 문의하기"
+      >
+        <span class="cta-icon" aria-hidden="true">💬</span>
+        카톡 문의
+      </a>
+
+      <a
+        class="cta-button sms"
+        href="sms:0100000000?body=이태원%20클럽%20예약%20문의드립니다."
+        aria-label="문자로 이태원 클럽 예약 문의하기"
+      >
+        <span class="cta-icon" aria-hidden="true">✉</span>
+        문자 문의
+      </a>
     </div>
   </nav>
 </body>
