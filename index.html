@@ -2,26 +2,33 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ITAEWON NIGHT | Premium Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#08030f" />
+  <title>ITAEWON NIGHT | Mobile Club Page</title>
 
   <style>
     :root {
-      --bg: #05030a;
-      --card: rgba(255, 255, 255, 0.08);
+      --bg: #07020f;
+      --panel: rgba(255, 255, 255, 0.085);
+      --panel-strong: rgba(255, 255, 255, 0.14);
       --line: rgba(255, 255, 255, 0.18);
       --text: #ffffff;
-      --muted: #c9c4d8;
+      --sub: #d8d1e8;
+      --muted: #a79ebc;
       --pink: #ff006e;
       --purple: #8338ec;
       --blue: #3a86ff;
       --yellow: #ffbe0b;
+      --green: #19f7c5;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html {
@@ -29,13 +36,14 @@
     }
 
     body {
+      margin: 0;
       min-height: 100vh;
-      font-family: Arial, "Noto Sans KR", sans-serif;
       color: var(--text);
+      font-family: Arial, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
       background:
-        radial-gradient(circle at 20% 10%, rgba(255, 0, 110, 0.38), transparent 28%),
-        radial-gradient(circle at 80% 20%, rgba(58, 134, 255, 0.34), transparent 26%),
-        radial-gradient(circle at 50% 80%, rgba(131, 56, 236, 0.40), transparent 34%),
+        radial-gradient(circle at 15% 0%, rgba(255, 0, 110, 0.48), transparent 32%),
+        radial-gradient(circle at 90% 8%, rgba(58, 134, 255, 0.42), transparent 30%),
+        radial-gradient(circle at 45% 78%, rgba(131, 56, 236, 0.48), transparent 38%),
         var(--bg);
       overflow-x: hidden;
     }
@@ -45,668 +53,868 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
       z-index: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.86), transparent 74%);
     }
 
-    .glow {
+    body::after {
+      content: "";
       position: fixed;
-      width: 360px;
-      height: 360px;
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: 0.6;
+      inset: 0;
+      pointer-events: none;
       z-index: 0;
-      animation: floatGlow 7s ease-in-out infinite alternate;
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.035),
+        transparent 16%,
+        transparent 80%,
+        rgba(0,0,0,0.38)
+      );
     }
 
-    .glow.one {
-      top: 8%;
-      left: -120px;
+    .mobile-shell {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 480px);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding-bottom: calc(92px + var(--safe-bottom));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 66px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(7, 2, 15, 0.72);
+      backdrop-filter: blur(20px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+      box-shadow: 0 0 22px rgba(255, 0, 110, 0.62);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .brand-title {
+      min-width: 0;
+    }
+
+    .brand-title strong {
+      display: block;
+      font-size: 15px;
+      letter-spacing: 1.3px;
+      white-space: nowrap;
+    }
+
+    .brand-title span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .top-cta {
+      flex: 0 0 auto;
+      min-height: 42px;
+      padding: 0 15px;
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff;
+      box-shadow: 0 0 20px rgba(255,0,110,0.42);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero {
+      position: relative;
+      padding: 42px 18px 28px;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(42px);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .orb.one {
+      width: 180px;
+      height: 180px;
+      top: 76px;
+      left: -62px;
       background: var(--pink);
+      animation: pulse 4.5s ease-in-out infinite alternate;
     }
 
-    .glow.two {
-      right: -120px;
-      bottom: 10%;
+    .orb.two {
+      width: 210px;
+      height: 210px;
+      right: -84px;
+      bottom: 66px;
       background: var(--blue);
-      animation-delay: 1.5s;
+      animation: pulse 5.4s ease-in-out infinite alternate-reverse;
     }
 
-    @keyframes floatGlow {
+    @keyframes pulse {
       from {
         transform: translateY(0) scale(1);
       }
       to {
-        transform: translateY(40px) scale(1.15);
+        transform: translateY(24px) scale(1.16);
       }
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 7%;
-      border-bottom: 1px solid var(--line);
-      background: rgba(5, 3, 10, 0.72);
-      backdrop-filter: blur(18px);
-    }
-
-    .logo {
-      font-size: 26px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: #fff;
-      text-shadow:
-        0 0 10px var(--pink),
-        0 0 22px var(--purple),
-        0 0 34px var(--blue);
-    }
-
-    nav {
-      display: flex;
-      gap: 26px;
-      align-items: center;
-    }
-
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 700;
-      transition: 0.25s;
-    }
-
-    nav a:hover {
-      color: #fff;
-      text-shadow: 0 0 12px var(--pink);
-    }
-
-    .nav-btn {
-      padding: 10px 18px;
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--pink), var(--purple));
-      color: #fff;
-      box-shadow: 0 0 18px rgba(255,0,110,0.48);
-    }
-
-    main {
+    .hero-inner {
       position: relative;
-      z-index: 1;
+      width: 100%;
     }
 
-    .hero {
-      min-height: 88vh;
-      display: grid;
-      place-items: center;
-      padding: 80px 7% 70px;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 7%;
-      right: 7%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--pink), var(--blue), transparent);
-    }
-
-    .badge {
-      display: inline-block;
-      margin-bottom: 24px;
-      padding: 10px 18px;
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 8px 13px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      color: #fff;
       background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(14px);
-      box-shadow: inset 0 0 20px rgba(255,255,255,0.06);
-    }
-
-    .hero h1 {
-      max-width: 1050px;
-      margin: 0 auto;
-      font-size: clamp(46px, 8vw, 108px);
-      line-height: 0.95;
+      backdrop-filter: blur(16px);
+      color: #fff;
+      font-size: 12px;
       font-weight: 900;
-      letter-spacing: -4px;
-      text-transform: uppercase;
-      text-shadow:
-        0 0 14px rgba(255,255,255,0.35),
-        0 0 34px rgba(255,0,110,0.70),
-        0 0 58px rgba(58,134,255,0.55);
+      letter-spacing: 0.6px;
+      box-shadow: inset 0 0 18px rgba(255,255,255,0.06);
     }
 
-    .hero h1 span {
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 14px var(--green);
+    }
+
+    h1 {
+      margin: 22px 0 0;
+      font-size: clamp(58px, 17vw, 88px);
+      line-height: 0.88;
+      letter-spacing: -5px;
+      text-transform: uppercase;
+      font-weight: 900;
+      text-shadow:
+        0 0 18px rgba(255,255,255,0.30),
+        0 0 34px rgba(255,0,110,0.76),
+        0 0 58px rgba(58,134,255,0.58);
+    }
+
+    h1 span {
+      display: block;
       background: linear-gradient(90deg, #fff, var(--yellow), var(--pink), var(--blue));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    .hero p {
-      max-width: 720px;
-      margin: 28px auto 0;
-      color: var(--muted);
-      font-size: 19px;
-      line-height: 1.8;
+    .hero-copy {
+      margin: 22px 0 0;
+      color: var(--sub);
+      font-size: 16px;
+      line-height: 1.72;
+      word-break: keep-all;
     }
 
     .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 38px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 24px;
     }
 
     .btn {
-      display: inline-block;
-      padding: 15px 26px;
-      border-radius: 999px;
+      min-height: 54px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
       text-decoration: none;
       color: #fff;
+      font-size: 15px;
       font-weight: 900;
-      letter-spacing: 0.4px;
-      transition: 0.25s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.22s, filter 0.22s;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
     }
 
     .btn.primary {
+      border: none;
       background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
-      box-shadow: 0 0 28px rgba(255, 0, 110, 0.55);
+      box-shadow: 0 18px 46px rgba(255,0,110,0.42);
     }
 
     .btn.secondary {
-      border: 1px solid var(--line);
       background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(18px);
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
-      filter: brightness(1.15);
-    }
-
-    .stats {
+    .quick-stats {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      max-width: 920px;
-      margin: 58px auto 0;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 22px;
     }
 
     .stat {
-      padding: 22px;
+      min-height: 92px;
+      padding: 14px 10px;
       border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--card);
+      border-radius: 20px;
+      background: var(--panel);
       backdrop-filter: blur(18px);
-      box-shadow: 0 22px 70px rgba(0,0,0,0.28);
+      box-shadow: 0 16px 44px rgba(0,0,0,0.24);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .stat strong {
       display: block;
-      font-size: 30px;
-      color: #fff;
+      font-size: 22px;
+      line-height: 1;
     }
 
     .stat small {
+      display: block;
+      margin-top: 8px;
       color: var(--muted);
-      font-weight: 700;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-align: center;
     }
 
     section {
-      padding: 90px 7%;
+      padding: 34px 18px;
+      scroll-margin-top: 76px;
     }
 
     .section-head {
-      max-width: 780px;
-      margin-bottom: 38px;
+      margin-bottom: 18px;
     }
 
     .eyebrow {
       color: var(--yellow);
+      font-size: 12px;
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: 1.8px;
       text-transform: uppercase;
-      font-size: 13px;
-      margin-bottom: 14px;
+      margin-bottom: 9px;
     }
 
-    .section-head h2 {
-      font-size: clamp(34px, 5vw, 62px);
-      letter-spacing: -2px;
+    h2 {
+      margin: 0;
+      font-size: 33px;
       line-height: 1.02;
+      letter-spacing: -1.6px;
+      font-weight: 900;
     }
 
-    .section-head p {
-      margin-top: 18px;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 17px;
+    .section-desc {
+      margin: 12px 0 0;
+      color: var(--sub);
+      font-size: 15px;
+      line-height: 1.7;
+      word-break: keep-all;
     }
 
-    .grid {
+    .card-stack {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 14px;
     }
 
-    .card {
+    .glass-card {
       position: relative;
       overflow: hidden;
-      min-height: 290px;
-      padding: 30px;
+      padding: 20px;
       border: 1px solid var(--line);
-      border-radius: 30px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.04));
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.055));
       backdrop-filter: blur(18px);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.30);
+      box-shadow: var(--shadow);
     }
 
-    .card::before {
+    .glass-card::before {
       content: "";
       position: absolute;
       inset: -1px;
-      background: radial-gradient(circle at top right, rgba(255,0,110,0.38), transparent 34%);
+      background: radial-gradient(circle at top right, rgba(255,0,110,0.32), transparent 34%);
       pointer-events: none;
     }
 
-    .card h3 {
+    .glass-card > * {
       position: relative;
-      font-size: 26px;
-      margin-bottom: 16px;
     }
 
-    .card p {
-      position: relative;
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 15px;
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
     }
 
-    .card .tag {
-      position: relative;
-      display: inline-block;
-      margin-top: 24px;
-      padding: 8px 12px;
+    .card-top h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.12;
+      letter-spacing: -0.8px;
+    }
+
+    .tag {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
       border-radius: 999px;
-      background: rgba(255, 0, 110, 0.15);
+      background: rgba(255, 0, 110, 0.16);
+      border: 1px solid rgba(255, 0, 110, 0.34);
       color: #ffd7e6;
-      border: 1px solid rgba(255, 0, 110, 0.35);
-      font-weight: 800;
-      font-size: 13px;
+      font-size: 11px;
+      font-weight: 900;
+      white-space: nowrap;
     }
 
-    .lineup {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      align-items: stretch;
+    .glass-card p {
+      margin: 14px 0 0;
+      color: var(--sub);
+      font-size: 14px;
+      line-height: 1.72;
+      word-break: keep-all;
+    }
+
+    .swipe-row {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 2px 18px 10px;
+      margin: 0 -18px;
+      scrollbar-width: none;
+    }
+
+    .swipe-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mini-card {
+      flex: 0 0 78%;
+      min-height: 210px;
+      scroll-snap-align: start;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.055));
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 52px rgba(0,0,0,0.34);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mini-card h3 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.08;
+      letter-spacing: -1px;
+    }
+
+    .mini-card p {
+      margin: 13px 0 0;
+      color: var(--sub);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .mini-card strong {
+      color: var(--yellow);
+      font-size: 13px;
+      letter-spacing: 1px;
     }
 
     .schedule {
-      border: 1px solid var(--line);
-      border-radius: 30px;
       overflow: hidden;
-      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
       backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
     }
 
-    .schedule-row {
+    .schedule-item {
       display: grid;
-      grid-template-columns: 130px 1fr 110px;
-      gap: 20px;
-      padding: 24px;
+      grid-template-columns: 72px 1fr;
+      gap: 14px;
+      padding: 18px;
       border-bottom: 1px solid var(--line);
-      align-items: center;
+      align-items: start;
     }
 
-    .schedule-row:last-child {
+    .schedule-item:last-child {
       border-bottom: none;
     }
 
-    .schedule-row time {
+    .schedule-item time {
       color: var(--yellow);
+      font-size: 16px;
       font-weight: 900;
+      line-height: 1.1;
     }
 
-    .schedule-row h3 {
-      font-size: 20px;
+    .schedule-item h3 {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.2;
     }
 
-    .schedule-row span {
-      justify-self: end;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(58,134,255,0.16);
-      color: #d9e8ff;
-      font-weight: 800;
+    .schedule-item p {
+      margin: 8px 0 0;
+      color: var(--muted);
       font-size: 13px;
+      line-height: 1.5;
     }
 
-    .visual-card {
-      min-height: 100%;
-      border-radius: 30px;
+    .visual-block {
+      min-height: 260px;
+      margin-top: 14px;
       border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
       background:
-        linear-gradient(135deg, rgba(255,0,110,0.22), rgba(58,134,255,0.20)),
-        radial-gradient(circle at 30% 30%, rgba(255,190,11,0.34), transparent 28%),
+        linear-gradient(135deg, rgba(255,0,110,0.24), rgba(58,134,255,0.24)),
+        radial-gradient(circle at 30% 30%, rgba(255,190,11,0.36), transparent 28%),
         rgba(255,255,255,0.08);
-      box-shadow: inset 0 0 60px rgba(255,255,255,0.08), 0 30px 80px rgba(0,0,0,0.32);
+      box-shadow: inset 0 0 60px rgba(255,255,255,0.08), var(--shadow);
       display: grid;
       place-items: center;
-      padding: 34px;
       text-align: center;
       overflow: hidden;
       position: relative;
     }
 
-    .visual-card::after {
-      content: "CLUB";
+    .visual-block::after {
+      content: "MOBILE ONLY";
       position: absolute;
-      font-size: 120px;
+      font-size: 58px;
       font-weight: 900;
-      color: rgba(255,255,255,0.06);
-      transform: rotate(-16deg);
+      color: rgba(255,255,255,0.07);
+      transform: rotate(-18deg);
+      white-space: nowrap;
     }
 
-    .visual-card strong {
+    .visual-block strong {
       position: relative;
-      font-size: clamp(40px, 7vw, 90px);
-      line-height: 0.95;
-      letter-spacing: -3px;
-      text-shadow: 0 0 30px rgba(255,255,255,0.35);
+      font-size: 50px;
+      line-height: 0.9;
+      letter-spacing: -2.6px;
+      text-transform: uppercase;
+      text-shadow: 0 0 26px rgba(255,255,255,0.34);
     }
 
-    .reservation {
+    .notice-list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--sub);
+      font-size: 14px;
+      line-height: 1.82;
+      word-break: keep-all;
+    }
+
+    .contact-box {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-      align-items: stretch;
+      gap: 10px;
+      margin-top: 14px;
     }
 
-    .notice,
-    .contact {
+    .contact-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 52px;
+      padding: 14px;
       border: 1px solid var(--line);
-      border-radius: 30px;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(18px);
-      padding: 34px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.30);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
     }
 
-    .notice h3,
-    .contact h3 {
-      font-size: 26px;
-      margin-bottom: 18px;
-    }
-
-    .notice ul {
-      padding-left: 20px;
+    .contact-row span {
       color: var(--muted);
-      line-height: 2;
+      font-size: 13px;
+      font-weight: 900;
     }
 
-    .contact p {
-      color: var(--muted);
-      line-height: 2;
-      font-size: 16px;
-    }
-
-    .contact strong {
+    .contact-row strong {
       color: #fff;
+      font-size: 13px;
+      text-align: right;
     }
 
-    footer {
-      position: relative;
-      z-index: 1;
-      padding: 34px 7%;
+    .bottom-nav {
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      z-index: 30;
+      width: min(100%, 480px);
+      transform: translateX(-50%);
+      padding: 10px 12px calc(10px + var(--safe-bottom));
       border-top: 1px solid var(--line);
-      color: #aaa3bc;
-      background: rgba(5,3,10,0.72);
-      text-align: center;
+      background: rgba(7, 2, 15, 0.82);
+      backdrop-filter: blur(24px);
     }
 
-    @media (max-width: 900px) {
-      header {
-        align-items: flex-start;
-        gap: 18px;
-        flex-direction: column;
+    .bottom-nav-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .bottom-nav a {
+      min-height: 52px;
+      border-radius: 18px;
+      color: var(--sub);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .bottom-nav a.primary-tab {
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      box-shadow: 0 0 20px rgba(255,0,110,0.38);
+    }
+
+    .footer {
+      padding: 26px 18px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media (min-width: 481px) {
+      body {
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 0, 110, 0.34), transparent 30%),
+          radial-gradient(circle at 50% 100%, rgba(58, 134, 255, 0.30), transparent 36%),
+          #12071d;
       }
 
-      nav {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 4px;
+      .mobile-shell {
+        border-left: 1px solid rgba(255,255,255,0.10);
+        border-right: 1px solid rgba(255,255,255,0.10);
+        background: rgba(7, 2, 15, 0.32);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .topbar {
+        padding-left: 14px;
+        padding-right: 14px;
       }
 
-      .stats,
-      .grid,
-      .lineup,
-      .reservation {
-        grid-template-columns: 1fr;
+      .hero,
+      section {
+        padding-left: 14px;
+        padding-right: 14px;
       }
 
-      .schedule-row {
-        grid-template-columns: 1fr;
+      h1 {
+        font-size: 56px;
+        letter-spacing: -4px;
+      }
+
+      .quick-stats {
         gap: 8px;
       }
 
-      .schedule-row span {
-        justify-self: start;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .hero {
-        min-height: 82vh;
+      .stat strong {
+        font-size: 19px;
       }
 
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      section {
-        padding: 70px 6%;
-      }
-
-      .card,
-      .notice,
-      .contact {
-        border-radius: 22px;
-        padding: 24px;
+      .stat small {
+        font-size: 9px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="glow one"></div>
-  <div class="glow two"></div>
-
-  <header>
-    <div class="logo">ITAEWON NIGHT</div>
-    <nav>
-      <a href="#about">소개</a>
-      <a href="#events">이벤트</a>
-      <a href="#lineup">라인업</a>
-      <a href="#reservation" class="nav-btn">예약</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div>
-        <div class="badge">SEOUL · ITAEWON · PREMIUM NIGHT CLUB</div>
-        <h1>Own The <span>Night</span></h1>
-        <p>
-          이태원의 중심에서 펼쳐지는 네온 사운드, 프리미엄 테이블, 게스트 DJ 퍼포먼스.
-          강한 비주얼과 빠른 예약 동선을 갖춘 클럽 랜딩 페이지입니다.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#reservation" class="btn primary">테이블 예약하기</a>
-          <a href="#events" class="btn secondary">이번 주 이벤트 보기</a>
-        </div>
-
-        <div class="stats">
-          <div class="stat">
-            <strong>21:00</strong>
-            <small>OPEN TIME</small>
-          </div>
-          <div class="stat">
-            <strong>3F</strong>
-            <small>LOUNGE · BAR · DANCE</small>
-          </div>
-          <div class="stat">
-            <strong>VIP</strong>
-            <small>TABLE RESERVATION</small>
-          </div>
+  <div class="mobile-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">IN</div>
+        <div class="brand-title">
+          <strong>ITAEWON NIGHT</strong>
+          <span>Premium Club Seoul</span>
         </div>
       </div>
-    </section>
+      <a href="#reservation" class="top-cta">예약</a>
+    </header>
 
-    <section id="about">
-      <div class="section-head">
-        <div class="eyebrow">About</div>
-        <h2>이태원의 밤을 위한 강한 첫 화면</h2>
-        <p>
-          ITAEWON NIGHT는 강렬한 네온 컬러, 유리 질감의 카드, 반응형 레이아웃을 적용한
-          클럽 홍보용 단일 HTML 홈페이지입니다. 실제 운영 시에는 상호, 주소, 사업자 정보,
-          출입 제한 안내 등을 실제 정보로 교체해야 합니다.
-        </p>
-      </div>
+    <main>
+      <section class="hero" id="home">
+        <div class="orb one"></div>
+        <div class="orb two"></div>
 
-      <div class="grid">
-        <article class="card">
-          <h3>Neon Sound</h3>
-          <p>힙합, EDM, 하우스 기반의 주말 파티 콘셉트를 전면에 배치했습니다.</p>
-          <span class="tag">Main Floor</span>
-        </article>
+        <div class="hero-inner">
+          <div class="pill">
+            <span class="live-dot"></span>
+            TONIGHT OPEN · 21:00
+          </div>
 
-        <article class="card">
-          <h3>VIP Table</h3>
-          <p>예약 버튼을 상단과 메인 화면에 중복 배치하여 문의 전환을 높이도록 구성했습니다.</p>
-          <span class="tag">Reservation</span>
-        </article>
+          <h1>
+            Own
+            <span>The Night</span>
+          </h1>
 
-        <article class="card">
-          <h3>Guest DJ</h3>
-          <p>라인업, 이벤트, 스페셜 게스트를 구분해 방문자가 핵심 정보를 빠르게 확인할 수 있습니다.</p>
-          <span class="tag">Weekly Event</span>
-        </article>
-      </div>
-    </section>
+          <p class="hero-copy">
+            이태원의 중심에서 시작되는 네온 사운드. 모바일 화면에서 바로 예약, 이벤트, 라인업을 확인하도록 설계한 클럽 전용 랜딩 페이지입니다.
+          </p>
 
-    <section id="events">
-      <div class="section-head">
-        <div class="eyebrow">Events</div>
-        <h2>Weekly Party Program</h2>
-        <p>요일별 콘셉트를 명확히 보여주는 이벤트 카드 영역입니다.</p>
-      </div>
+          <div class="hero-actions">
+            <a href="#reservation" class="btn primary">VIP 테이블 예약하기</a>
+            <a href="#events" class="btn secondary">이번 주 파티 보기</a>
+          </div>
 
-      <div class="grid">
-        <article class="card">
-          <h3>Friday Hip-Hop</h3>
-          <p>국내외 힙합 트랙, 강한 베이스, 퍼포먼스 중심의 금요일 밤.</p>
-          <span class="tag">FRI 22:00</span>
-        </article>
+          <div class="quick-stats">
+            <div class="stat">
+              <strong>21:00</strong>
+              <small>OPEN</small>
+            </div>
+            <div class="stat">
+              <strong>VIP</strong>
+              <small>TABLE</small>
+            </div>
+            <div class="stat">
+              <strong>3F</strong>
+              <small>LOUNGE</small>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <article class="card">
-          <h3>Saturday EDM</h3>
-          <p>EDM, 테크노, 하우스 사운드를 중심으로 구성된 메인 파티.</p>
-          <span class="tag">SAT 22:00</span>
-        </article>
+      <section id="about">
+        <div class="section-head">
+          <div class="eyebrow">About</div>
+          <h2>모바일에서 먼저 보이는 클럽 홈페이지</h2>
+          <p class="section-desc">
+            작은 화면 기준으로 정보 밀도를 조정했습니다. 메뉴는 하단 고정 내비게이션으로 두고, 예약 버튼은 상단과 메인 CTA에 반복 배치했습니다.
+          </p>
+        </div>
 
-        <article class="card">
-          <h3>Special Night</h3>
-          <p>게스트 DJ, 브랜드 협업, 시즌 한정 프로모션을 위한 섹션입니다.</p>
-          <span class="tag">SPECIAL</span>
-        </article>
-      </div>
-    </section>
+        <div class="card-stack">
+          <article class="glass-card">
+            <div class="card-top">
+              <h3>Neon Sound</h3>
+              <span class="tag">MAIN</span>
+            </div>
+            <p>힙합, EDM, 하우스 기반의 주말 파티 콘셉트를 강한 비주얼로 표현했습니다.</p>
+          </article>
 
-    <section id="lineup">
-      <div class="section-head">
-        <div class="eyebrow">Line-up</div>
-        <h2>Tonight Schedule</h2>
-        <p>시간대별 공연 및 플로어 운영 정보를 보여주는 영역입니다.</p>
-      </div>
+          <article class="glass-card">
+            <div class="card-top">
+              <h3>VIP Table</h3>
+              <span class="tag">BOOKING</span>
+            </div>
+            <p>모바일 방문자가 스크롤 중에도 예약 동선을 놓치지 않도록 구성했습니다.</p>
+          </article>
+        </div>
+      </section>
 
-      <div class="lineup">
+      <section id="events">
+        <div class="section-head">
+          <div class="eyebrow">Events</div>
+          <h2>Swipe Party Cards</h2>
+          <p class="section-desc">이벤트는 모바일에서 넘겨 보기 좋은 가로 스와이프 카드로 배치했습니다.</p>
+        </div>
+
+        <div class="swipe-row" aria-label="이벤트 카드 목록">
+          <article class="mini-card">
+            <div>
+              <strong>FRI 22:00</strong>
+              <h3>Friday Hip-Hop</h3>
+              <p>국내외 힙합 트랙과 강한 베이스 중심의 금요일 밤.</p>
+            </div>
+            <span class="tag">HIP-HOP</span>
+          </article>
+
+          <article class="mini-card">
+            <div>
+              <strong>SAT 22:00</strong>
+              <h3>Saturday EDM</h3>
+              <p>EDM, 하우스, 테크노 사운드 기반의 메인 파티.</p>
+            </div>
+            <span class="tag">EDM</span>
+          </article>
+
+          <article class="mini-card">
+            <div>
+              <strong>SPECIAL</strong>
+              <h3>Guest DJ Night</h3>
+              <p>게스트 DJ, 브랜드 협업, 시즌 한정 프로모션.</p>
+            </div>
+            <span class="tag">GUEST</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="lineup">
+        <div class="section-head">
+          <div class="eyebrow">Line-up</div>
+          <h2>Tonight Schedule</h2>
+          <p class="section-desc">시간대별 운영 정보를 한 손 조작에 맞춰 세로형 리스트로 구성했습니다.</p>
+        </div>
+
         <div class="schedule">
-          <div class="schedule-row">
+          <div class="schedule-item">
             <time>21:00</time>
-            <h3>Door Open & Warm-up</h3>
-            <span>LOUNGE</span>
+            <div>
+              <h3>Door Open</h3>
+              <p>입장, 라운지, 워밍업 사운드.</p>
+            </div>
           </div>
-          <div class="schedule-row">
+
+          <div class="schedule-item">
             <time>23:00</time>
-            <h3>Main DJ Set</h3>
-            <span>MAIN</span>
+            <div>
+              <h3>Main DJ Set</h3>
+              <p>메인 플로어 피크타임 세션.</p>
+            </div>
           </div>
-          <div class="schedule-row">
+
+          <div class="schedule-item">
             <time>01:00</time>
-            <h3>Guest Performance</h3>
-            <span>VIP</span>
+            <div>
+              <h3>Guest Performance</h3>
+              <p>스페셜 게스트 및 VIP 세션.</p>
+            </div>
           </div>
-          <div class="schedule-row">
+
+          <div class="schedule-item">
             <time>03:00</time>
-            <h3>Late Night Session</h3>
-            <span>AFTER</span>
+            <div>
+              <h3>Late Night Session</h3>
+              <p>애프터 무드의 라스트 플로어.</p>
+            </div>
           </div>
         </div>
 
-        <div class="visual-card">
+        <div class="visual-block">
           <strong>NEON<br />SEOUL<br />NIGHT</strong>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="reservation">
-      <div class="section-head">
-        <div class="eyebrow">Reservation</div>
-        <h2>Table & Guest Inquiry</h2>
-        <p>실제 사용 전 연락처와 주소를 반드시 실제 정보로 교체하십시오.</p>
-      </div>
+      <section id="reservation">
+        <div class="section-head">
+          <div class="eyebrow">Reservation</div>
+          <h2>Table & Guest Inquiry</h2>
+          <p class="section-desc">실제 영업용 사용 전에는 아래 연락처, 주소, 운영정책을 실제 정보로 교체해야 합니다.</p>
+        </div>
 
-      <div class="reservation">
-        <div class="notice">
-          <h3>입장 및 운영 안내</h3>
-          <ul>
+        <article class="glass-card">
+          <div class="card-top">
+            <h3>입장 및 고지사항</h3>
+            <span class="tag">NOTICE</span>
+          </div>
+
+          <ul class="notice-list">
             <li>만 19세 미만 출입 제한 문구를 실제 운영정책에 맞게 명시해야 합니다.</li>
             <li>신분증 확인, 드레스 코드, 예약 취소 기준을 별도 고지하는 것이 적절합니다.</li>
-            <li>개인정보를 수집하는 예약 폼을 붙일 경우 개인정보처리방침이 필요합니다.</li>
-            <li>영업장 주소, 사업자 정보, 통신판매 관련 정보는 실제 정보로 수정해야 합니다.</li>
+            <li>예약 폼으로 개인정보를 수집할 경우 개인정보처리방침이 필요합니다.</li>
           </ul>
+        </article>
+
+        <div class="contact-box">
+          <div class="contact-row">
+            <span>전화</span>
+            <strong>02-0000-0000</strong>
+          </div>
+
+          <div class="contact-row">
+            <span>이메일</span>
+            <strong>reservation@itaewonnight.com</strong>
+          </div>
+
+          <div class="contact-row">
+            <span>주소</span>
+            <strong>서울 용산구 이태원로 000</strong>
+          </div>
+
+          <div class="contact-row">
+            <span>운영</span>
+            <strong>금·토 21:00 - 04:00</strong>
+          </div>
         </div>
 
-        <div class="contact">
-          <h3>Contact</h3>
-          <p><strong>전화</strong> 02-0000-0000</p>
-          <p><strong>이메일</strong> reservation@itaewonnight.com</p>
-          <p><strong>주소</strong> 서울특별시 용산구 이태원로 000</p>
-          <p><strong>운영</strong> 금·토 21:00 - 04:00</p>
-          <a href="mailto:reservation@itaewonnight.com" class="btn primary">예약 메일 보내기</a>
+        <div class="hero-actions">
+          <a href="tel:0200000000" class="btn primary">전화 예약하기</a>
+          <a href="mailto:reservation@itaewonnight.com" class="btn secondary">메일 문의하기</a>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer>
-    <p>© 2026 ITAEWON NIGHT. All Rights Reserved.</p>
-  </footer>
+        <div class="footer">
+          © 2026 ITAEWON NIGHT. All Rights Reserved.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="bottom-nav" aria-label="모바일 하단 메뉴">
+    <div class="bottom-nav-inner">
+      <a href="#home">홈</a>
+      <a href="#events">이벤트</a>
+      <a href="#lineup">라인업</a>
+      <a href="#reservation" class="primary-tab">예약</a>
+    </div>
+  </nav>
 </body>
 </html>
