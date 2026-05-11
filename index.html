@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#050005" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <meta name="format-detection" content="telephone=yes" />
 
   <title>이태원클럽 | The Seoul</title>
@@ -13,7 +16,7 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://itaewonclub.kr/" />
   <link rel="preload" as="image" href="assets/front-main.jpg" />
-  <link rel="preload" as="image" href="assets/front-crowd.jpg" />
+  <link rel="preload" as="image" href="assets/drink-price.jpg" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='22' fill='%23000'/%3E%3Ctext x='60' y='52' text-anchor='middle' fill='%23fff' font-size='30' font-family='Arial' font-weight='700'%3ETHE%3C/text%3E%3Ctext x='60' y='84' text-anchor='middle' fill='%23fff' font-size='28' font-family='Arial' font-weight='700'%3ESEOUL%3C/text%3E%3C/svg%3E" />
 
   <meta property="og:type" content="website" />
@@ -57,7 +60,7 @@
     "priceRange": "VIP table 50만원~",
     "image": [
       "https://itaewonclub.kr/assets/front-main.jpg",
-      "https://itaewonclub.kr/assets/front-crowd.jpg"
+      "https://itaewonclub.kr/assets/drink-price.jpg"
     ],
     "potentialAction": {
       "@type": "ReserveAction",
@@ -188,14 +191,15 @@
       white-space: nowrap;
     }
 
-    main { padding-bottom: calc(104px + var(--safe-bottom)); }
+    main { padding-bottom: calc(118px + var(--safe-bottom)); }
     section { position: relative; padding: 62px 18px; scroll-margin-top: 78px; }
 
     .hero {
-      min-height: 760px;
+      min-height: 660px;
       display: flex;
       align-items: center;
       padding-top: 34px;
+      padding-bottom: 26px;
       isolation: isolate;
     }
     .hero::before {
@@ -320,7 +324,7 @@
       text-transform: uppercase;
     }
 
-    .section-head { margin-bottom: 22px; }
+    .section-head { margin-bottom: 18px; }
     .eyebrow {
       display: inline-flex;
       margin-bottom: 10px;
@@ -342,6 +346,8 @@
     }
 
     .people-grid { display: grid; gap: 14px; }
+    #people { padding-top: 26px; }
+    #drink, #table, #timetable, #qna { padding-top: 52px; }
     .live-photo {
       position: relative;
       overflow: hidden;
@@ -714,6 +720,7 @@
     .reservation-card .card-inner { padding: 22px 16px; }
     .unit { display:inline-flex; margin-bottom: 14px; padding: 8px 11px; border-radius:999px; color:#0e0a04; background:linear-gradient(135deg, var(--gold), var(--gold-2)); font-size: 12px; font-weight:1000; }
     .price-grid { display:grid; gap: 12px; }
+    .table-price-note { margin: 12px 4px 0; font-size: 12px; line-height: 1.6; color: rgba(255,255,255,.62); letter-spacing: -.01em; }
     .price-row {
       display: grid;
       grid-template-columns: 1.2fr .8fr;
@@ -792,7 +799,7 @@
       background: linear-gradient(90deg, rgba(255,23,77,.18), rgba(255,204,84,.12), rgba(16,243,255,.10));
       pointer-events: none;
     }
-    .fixed-cta-inner { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .fixed-cta-inner { position: relative; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
     .cta {
       min-height: 56px;
       border-radius: 18px;
@@ -805,8 +812,108 @@
       letter-spacing: -.03em;
       box-shadow: 0 14px 26px rgba(0,0,0,.34);
     }
+    .cta-icon {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+    .icon-kakao {
+      width: 22px;
+      height: 18px;
+      border-radius: 8px;
+      background: rgba(17, 17, 17, .88);
+      box-shadow: 0 0 14px rgba(0,0,0,.16), inset 0 0 0 2px rgba(17,17,17,.05);
+    }
+    .icon-kakao::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      bottom: -4px;
+      width: 8px;
+      height: 8px;
+      background: rgba(17, 17, 17, .88);
+      clip-path: polygon(0 0, 100% 0, 30% 100%);
+      border-bottom-left-radius: 2px;
+    }
+    .icon-kakao::before {
+      content: "T";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 1000;
+      color: #ffe812;
+      text-shadow: 0 0 8px rgba(255,232,18,.35);
+      transform: translateY(-.5px);
+    }
+    .icon-message {
+      width: 22px;
+      height: 18px;
+      border-radius: 5px;
+      border: 2px solid currentColor;
+      box-shadow: 0 0 12px rgba(255,255,255,.18);
+    }
+    .icon-message::before,
+    .icon-message::after {
+      content: "";
+      position: absolute;
+      left: 3px;
+      right: 3px;
+      height: 2px;
+      background: currentColor;
+      opacity: .9;
+      transform-origin: center;
+    }
+    .icon-message::before {
+      top: 6px;
+      transform: rotate(24deg);
+    }
+    .icon-message::after {
+      top: 6px;
+      transform: rotate(-24deg);
+    }
     .cta-kakao { background: var(--kakao); color: var(--kakao-text); }
     .cta-sms { background: linear-gradient(135deg, #27d869, #0da74a); color: #fff; }
+    .cta-instagram {
+      color: #fff;
+      background:
+        radial-gradient(circle at 28% 112%, #ffd15f 0 15%, transparent 33%),
+        radial-gradient(circle at 22% 16%, #8f5cff 0 15%, transparent 33%),
+        linear-gradient(135deg, #4b1dff 0%, #9b22ff 36%, #ff247a 72%, #ff8a2a 100%);
+    }
+    .cta-instagram .ig-symbol {
+      width: 20px;
+      height: 20px;
+      border: 2px solid currentColor;
+      border-radius: 6px;
+      position: relative;
+      display: inline-block;
+      flex: 0 0 auto;
+      box-shadow: 0 0 14px rgba(255,255,255,.34);
+    }
+    .cta-instagram .ig-symbol::before {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+    }
+    .cta-instagram .ig-symbol::after {
+      content: "";
+      position: absolute;
+      right: 3px;
+      top: 3px;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 10px currentColor;
+    }
 
     @keyframes spin { to { transform: rotate(360deg); } }
     @keyframes ePulse {
@@ -839,6 +946,313 @@
       .set-row { grid-template-columns: 1fr; gap: 16px; }
       .choice-row { grid-template-columns: repeat(2,1fr); }
     }
+
+    /* 2026-05-11 requested final patch */
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      min-width: max-content;
+      letter-spacing: 0;
+    }
+    .brand-wordmark,
+    .title-wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: .10em;
+      font-family: Inter, Pretendard, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 1000;
+      letter-spacing: .08em;
+      color: #fff;
+      text-transform: uppercase;
+      white-space: nowrap;
+      text-shadow: 0 0 12px rgba(255,255,255,.72), 0 0 26px rgba(188,24,255,.45), 0 0 42px rgba(255,23,77,.28);
+    }
+    .brand-wordmark { font-size: 15px; }
+    .title-wordmark { font-size: inherit; vertical-align: middle; }
+    .brand-space { margin-left: .34em; }
+    .e-mark {
+      width: .76em;
+      height: .78em;
+      display: inline-grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap: .15em;
+      transform: translateY(.02em);
+    }
+    .e-mark i {
+      display: block;
+      width: 100%;
+      height: .105em;
+      border-radius: 999px;
+      align-self: center;
+      background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.88) 68%, rgba(255,255,255,.58) 100%);
+      box-shadow: 0 0 8px rgba(255,255,255,.62), 0 0 16px rgba(214,40,255,.34);
+    }
+    .hero-title { display: none !important; }
+    .hero-content {
+      width: 100%;
+      max-width: 720px;
+      padding-top: 22px;
+    }
+    .hero .animated-logo { margin-bottom: 22px; }
+    .hero-copy {
+      margin-top: 0;
+      max-width: 31em;
+      font-size: clamp(17px, 4.5vw, 22px);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      color: rgba(255,255,255,.97);
+      text-shadow: 0 0 18px rgba(255,255,255,.10), 0 10px 34px rgba(0,0,0,.55);
+    }
+    .hero-stats-wide {
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .hero-stats-wide .stat {
+      min-height: 110px;
+      padding: 22px 16px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.17), rgba(255,255,255,.06)),
+        rgba(6,0,14,.58);
+      border: 1px solid rgba(255,255,255,.26);
+      box-shadow:
+        0 24px 58px rgba(0,0,0,.50),
+        inset 0 0 36px rgba(255,255,255,.05),
+        0 0 30px rgba(196,0,255,.18),
+        0 0 50px rgba(255,23,77,.08);
+      backdrop-filter: blur(14px);
+    }
+    .hero-stats-wide .stat strong {
+      font-family: Inter, Pretendard, system-ui, sans-serif;
+      font-size: clamp(24px, 5.2vw, 34px);
+      letter-spacing: -.065em;
+      color: #fff;
+      text-shadow: 0 0 16px rgba(255,255,255,.42), 0 0 26px rgba(255,23,77,.24);
+    }
+    .hero-stats-wide .stat small {
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,.80);
+      letter-spacing: .14em;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+    .people-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .24em;
+      letter-spacing: -.06em;
+    }
+    .live-photo-single {
+      min-height: auto;
+      aspect-ratio: 4 / 3;
+      border-radius: 30px;
+      box-shadow:
+        0 24px 80px rgba(0,0,0,.58),
+        0 0 44px rgba(164,25,255,.24),
+        0 0 22px rgba(255,23,77,.16);
+    }
+    .live-photo-single img {
+      min-height: auto;
+      height: 100%;
+      transform: none;
+      filter: saturate(1.2) contrast(1.07) brightness(1.02);
+      image-rendering: auto;
+    }
+    .gallery-stack {
+      display: grid;
+      gap: 18px;
+    }
+    .image-panel {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: radial-gradient(circle at 18% 0%, rgba(204,0,255,.24), transparent 34%), rgba(0,0,0,.35);
+      box-shadow:
+        0 22px 70px rgba(0,0,0,.55),
+        0 0 34px rgba(187,0,255,.14);
+    }
+    .image-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255,255,255,.07), transparent 18%, rgba(0,0,0,.18));
+      mix-blend-mode: screen;
+      opacity: .42;
+    }
+    .image-panel img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: saturate(1.05) contrast(1.04);
+    }
+    .table-map-panel { margin-bottom: 16px; }
+    .table-price-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid rgba(255,204,84,.36);
+      background:
+        radial-gradient(circle at 0 0, rgba(255,204,84,.18), transparent 34%),
+        radial-gradient(circle at 100% 100%, rgba(164,25,255,.20), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+      box-shadow: 0 22px 70px rgba(0,0,0,.52), 0 0 36px rgba(255,204,84,.12);
+      padding: 18px 14px;
+    }
+    .table-price-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: conic-gradient(from 0deg, transparent, rgba(255,204,84,.22), transparent 18%, transparent 62%, rgba(255,23,77,.18), transparent 78%);
+      animation: spin 9s linear infinite;
+      opacity: .44;
+      pointer-events: none;
+    }
+    .table-price-card .unit,
+    .table-price-card .price-grid { position: relative; z-index: 1; }
+    .table-price-card .unit {
+      display: inline-flex;
+      margin-bottom: 13px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,204,84,.16);
+      border: 1px solid rgba(255,204,84,.30);
+      color: #ffe07a;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .05em;
+    }
+    .table-price-card .price-row {
+      background: rgba(0,0,0,.34);
+      border-color: rgba(255,255,255,.16);
+      box-shadow: inset 0 0 24px rgba(255,255,255,.035), 0 12px 30px rgba(0,0,0,.25);
+    }
+    .table-price-card .price-row strong {
+      font-size: clamp(22px, 5vw, 28px);
+      letter-spacing: -.04em;
+      color: #fff3b0;
+      text-shadow: 0 0 16px rgba(255,204,84,.34);
+    }
+    .qna-neon-section::before {
+      content: "";
+      position: absolute;
+      inset: 24px 8px;
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 16% 0%, rgba(255,23,77,.18), transparent 33%),
+        radial-gradient(circle at 100% 35%, rgba(82,22,255,.18), transparent 36%);
+      pointer-events: none;
+      filter: blur(2px);
+    }
+    .faq-neon { position: relative; z-index: 1; gap: 14px; }
+    .faq-neon .faq-item {
+      position: relative;
+      overflow: hidden;
+      padding: 19px 17px;
+      border: 1px solid rgba(255,255,255,.18);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.035)),
+        rgba(8,0,15,.62);
+      box-shadow:
+        0 18px 54px rgba(0,0,0,.46),
+        inset 0 0 32px rgba(255,255,255,.035),
+        0 0 26px rgba(206,34,255,.16);
+    }
+    .faq-neon .faq-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #ff174d, #f5d76e, #7b2cff);
+      box-shadow: 0 0 18px rgba(255,23,77,.72), 0 0 28px rgba(123,44,255,.38);
+    }
+    .faq-neon .q {
+      color: #fff;
+      font-size: 18px;
+      text-shadow: 0 0 14px rgba(255,255,255,.18), 0 0 24px rgba(255,23,77,.16);
+    }
+    .faq-neon .a {
+      color: rgba(255,255,255,.76);
+      font-weight: 650;
+    }
+    .fixed-cta {
+      padding: 14px 14px calc(14px + var(--safe-bottom));
+      box-shadow: 0 -32px 80px rgba(0,0,0,.76), 0 0 42px rgba(255,23,77,.22);
+    }
+    .fixed-cta-inner { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .cta {
+      min-height: 74px;
+      border-radius: 24px;
+      font-size: 17px;
+      font-weight: 950;
+      letter-spacing: -.05em;
+      transform: translateZ(0);
+      animation: ctaLift 2.1s ease-in-out infinite;
+      box-shadow: 0 18px 38px rgba(0,0,0,.36);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta:nth-child(2) { animation-delay: .18s; }
+    .cta:nth-child(3) { animation-delay: .36s; }
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,.26), transparent 24%, transparent 62%, rgba(255,255,255,.15));
+      opacity: .55;
+      pointer-events: none;
+    }
+    .cta-kakao { box-shadow: 0 18px 42px rgba(0,0,0,.40), 0 0 32px rgba(250,225,0,.34), inset 0 0 18px rgba(255,255,255,.12); }
+    .cta-sms { box-shadow: 0 18px 42px rgba(0,0,0,.40), 0 0 32px rgba(39,216,105,.34), inset 0 0 18px rgba(255,255,255,.12); }
+    .cta-instagram {
+      box-shadow:
+        0 18px 42px rgba(0,0,0,.40),
+        0 0 38px rgba(178,65,255,.50),
+        0 0 22px rgba(255,36,122,.28),
+        inset 0 0 18px rgba(255,255,255,.15);
+      text-shadow: 0 0 12px rgba(255,255,255,.36), 0 0 24px rgba(255,36,122,.26);
+    }
+    @keyframes ctaLift {
+      0%, 100% { transform: translateY(0) scale(1); filter: brightness(1); }
+      50% { transform: translateY(-3px) scale(1.02); filter: brightness(1.10); }
+    }
+    @media (max-width: 420px) {
+      .brand-wordmark { font-size: 13px; }
+      .nav-links { max-width: calc(100% - 108px); gap: 5px; }
+      .nav-links a { padding-left: 8px; padding-right: 8px; font-size: 10px; }
+      .hero { min-height: 620px; }
+      .hero-stats-wide { grid-template-columns: 1fr; }
+      .hero-stats-wide .stat { min-height: 88px; }
+      .hero-contact { margin-top: 14px; }
+      .hero-contact-line { gap: 8px; }
+      .hero-contact-role { margin-left: 0; width: 100%; }
+      .people-title { font-size: clamp(27px, 8vw, 36px); }
+      .image-panel { border-radius: 22px; }
+      .fixed-cta { padding-left: 8px; padding-right: 8px; }
+      .fixed-cta-inner { gap: 7px; }
+      .cta { min-height: 66px; border-radius: 20px; font-size: 14px; gap: 5px; }
+      .cta-instagram .ig-symbol { width: 17px; height: 17px; border-radius: 5px; }
+      .icon-kakao { width: 19px; height: 16px; }
+      .icon-message { width: 19px; height: 16px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; transition: none !important; }
     }
@@ -848,13 +1262,16 @@
 <body>
   <div class="site" id="top">
     <header class="topbar" aria-label="상단 고정 메뉴">
-      <a class="brand" href="#top" aria-label="The Seoul 홈으로 이동">THE SEOUL</a>
+      <a class="brand brand-logo" href="#top" aria-label="The Seoul 홈으로 이동"><span class="brand-wordmark" aria-label="THE SEOUL">
+          <span>T</span><span>H</span><span class="e-mark"><i></i><i></i><i></i></span>
+          <span class="brand-space">S</span><span class="e-mark"><i></i><i></i><i></i></span><span>OUL</span>
+        </span></a>
       <nav class="nav-links" aria-label="페이지 이동 메뉴">
-        <a href="#people">PEOPEL</a>
-        <a href="#drink">DRINK</a>
+        <a href="#people">PEOPLE</a>
+        <a href="#drink">PRICE</a>
         <a href="#table">TABLE</a>
         <a href="#timetable">TIME</a>
-        <a href="#reservation">VIP</a>
+        <a href="#map">MAP</a>
         <a href="#qna">QNA</a>
       </nav>
     </header>
@@ -863,7 +1280,7 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="scanline" aria-hidden="true"></div>
         <div class="hero-beam" aria-hidden="true"></div>
-        <div>
+        <div class="hero-content">
           <div class="animated-logo" aria-label="THE SEOUL 로고">
             <div class="logo-word" aria-hidden="true">
               <span class="char">T</span><span class="char">H</span><span class="e-bars"><i></i><i></i><i></i></span>
@@ -872,165 +1289,40 @@
               <span class="char">S</span><span class="e-bars"><i></i><i></i><i></i></span><span class="char">OUL</span>
             </div>
           </div>
+          <h1 class="sr-only" id="hero-title">THE SEOUL</h1>
+          <p class="hero-copy">이태원에서 유일한 500평대 대형 클럽<br />더 서울에 방문을 감사드립니다.</p>
 
-          <h1 class="hero-title" id="hero-title">THE<br />SEOUL</h1>
-          <p class="hero-copy">500평 규모의 대형클럽, 이태원메이드의 부활 더 서울에 오신것을 환영합니다.</p>
-
-          <div class="hero-stats" aria-label="핵심 안내">
-            <div class="stat"><strong>500~1,000</strong><small>평균 입장</small></div>
+          <div class="hero-stats hero-stats-wide" aria-label="핵심 안내">
+            <div class="stat"><strong>500~1,000</strong><small>하루 평균 입장인원</small></div>
             <div class="stat"><strong>5:5~6:4</strong><small>성비</small></div>
-            <div class="stat"><strong>VIP</strong><small>Table</small></div>
+            <div class="stat"><strong>VIP</strong><small>TABLE</small></div>
           </div>
         </div>
       </section>
 
       <section id="people" aria-labelledby="people-title">
         <div class="section-head">
-          <div class="eyebrow">PEOPEL</div>
-          <h2 id="people-title">더 서울 압도적인 현장감</h2>
+          <div class="eyebrow">PEOPLE</div>
+          <h2 id="people-title" class="people-title"><span class="title-wordmark" aria-label="THE SEOUL">
+              <span>T</span><span>H</span><span class="e-mark"><i></i><i></i><i></i></span>
+              <span class="brand-space">S</span><span class="e-mark"><i></i><i></i><i></i></span><span>OUL</span>
+            </span> <span>압도적인 현장감</span></h2>
         </div>
-        <div class="people-grid">
-          <figure class="live-photo"><img src="assets/front-main.jpg" alt="더 서울 클럽 보라색 조명 현장" loading="lazy" /></figure>
-          <figure class="live-photo"><img src="assets/front-crowd.jpg" alt="더 서울 클럽 플로어 현장" loading="lazy" /></figure>
-        </div>
+        <figure class="live-photo live-photo-single">
+          <img src="assets/front-main.jpg" alt="THE SEOUL 클럽 보라색 조명 현장" loading="eager" decoding="async" />
+        </figure>
       </section>
 
       <section id="drink" aria-labelledby="drink-title">
         <div class="section-head">
-          <div class="eyebrow">DRINK PRICE</div>
-          <h2 id="drink-title">DRINK PRICE</h2>
+          <div class="eyebrow">PRICE</div>
+          <h2 id="drink-title">PRICE</h2>
         </div>
-
-        <article class="draw-card">
-          <div class="card-inner">
-            <h3 class="menu-title">CHAMPAGNE</h3>
-            <div class="drink-grid">
-              <div class="drink-item"><span class="tag">BAR ONLY</span><div class="bottle gold-bottle thin-bottle"></div><b class="drink-name">PERLINO MOSCATO</b><span class="drink-ko">펠리노 모스카토</span><strong class="drink-price">150,000</strong></div>
-              <div class="drink-item"><span class="tag">BAR ONLY</span><div class="bottle clear-bottle"></div><b class="drink-name">EMISARIO</b><span class="drink-ko">에미사리오</span><strong class="drink-price">150,000</strong></div>
-              <div class="drink-item"><div class="bottle pink-bottle"></div><b class="drink-name">RICHBEL ICE ROSE</b><span class="drink-ko">리쉬벨 아이스 로제</span><strong class="drink-price">250,000</strong></div>
-              <div class="drink-item"><div class="bottle blue-bottle"></div><b class="drink-name">BELLE ETOIL BLANC / ROSE</b><span class="drink-ko">벨 에뚜알 블랑 / 로제</span><strong class="drink-price">250,000</strong></div>
-              <div class="drink-item"><div class="bottle black-bottle thin-bottle"></div><b class="drink-name">JEAN PIERRE</b><span class="drink-ko">장 피에르</span><strong class="drink-price">250,000</strong></div>
-            </div>
-
-            <h3 class="menu-title">PREMIUM CHAMPAGNE</h3>
-            <div class="drink-grid">
-              <div class="drink-item"><div class="bottle green-bottle"></div><b class="drink-name">MOET &amp; CHANDON BRUT</b><span class="drink-ko">모엣 샹동 브뤼</span><strong class="drink-price">300,000</strong></div>
-              <div class="drink-item"><div class="bottle pink-bottle"></div><b class="drink-name">MOET &amp; CHANDON N.I.R</b><span class="drink-ko">모엣 샹동 니르</span><strong class="drink-price">500,000</strong></div>
-              <div class="drink-item"><div class="bottle black-bottle thin-bottle"></div><b class="drink-name">RIHARD BARVION</b><span class="drink-ko">리샤르 바비용</span><strong class="drink-price">1,000,000</strong></div>
-              <div class="drink-item"><div class="bottle black-bottle wide-bottle"></div><b class="drink-name">DOM PERIGNON</b><span class="drink-ko">돔 페리뇽</span><strong class="drink-price">1,800,000</strong></div>
-              <div class="drink-item"><div class="bottle gold-bottle wide-bottle"></div><b class="drink-name">ARMAND DE BRIGNAC</b><span class="drink-ko">아르망디 브리냑</span><strong class="drink-price">2,400,000</strong></div>
-              <div class="drink-item"><div class="bottle pink-bottle wide-bottle"></div><b class="drink-name">ARMAND DE BRIGNAC ROSE</b><span class="drink-ko">아르망디 브리냑 로제</span><strong class="drink-price">2,800,000</strong></div>
-            </div>
-
-            <h3 class="menu-title">VODKA &amp; LIQUEUR</h3>
-            <div class="drink-grid">
-              <div class="drink-item"><div class="bottle blue-bottle thin-bottle"></div><b class="drink-name">SKY VODKA</b><span class="drink-ko">스카이 보드카</span><strong class="drink-price">250,000</strong></div>
-              <div class="drink-item"><div class="bottle clear-bottle"></div><b class="drink-name">ABSOLUT VODKA</b><span class="drink-ko">앱솔루트</span><strong class="drink-price">250,000</strong></div>
-              <div class="drink-item"><div class="bottle clear-bottle"></div><b class="drink-name">MALIBU</b><span class="drink-ko">말리부</span><strong class="drink-price">250,000</strong></div>
-              <div class="drink-item"><div class="bottle pink-bottle thin-bottle"></div><b class="drink-name">X-RATED</b><span class="drink-ko">엑스 레이티드</span><strong class="drink-price">300,000</strong></div>
-              <div class="drink-item"><div class="bottle green-bottle"></div><b class="drink-name">AGWA</b><span class="drink-ko">아그와</span><strong class="drink-price">300,000</strong></div>
-              <div class="drink-item"><div class="bottle clear-bottle thin-bottle"></div><b class="drink-name">GREY GOOSE</b><span class="drink-ko">그레이 구스</span><strong class="drink-price">350,000</strong></div>
-            </div>
-
-            <h3 class="menu-title">COGNAC</h3>
-            <div class="drink-grid three">
-              <div class="drink-item"><div class="bottle tequila-bottle"></div><b class="drink-name">HENNESSY VSOP</b><span class="drink-ko">헤네시 VSOP</span><strong class="drink-price">400,000</strong></div>
-              <div class="drink-item"><div class="bottle gold-bottle wide-bottle"></div><b class="drink-name">LOUIS XIII</b><span class="drink-ko">루이 13</span><strong class="drink-price">25,000,000</strong></div>
-            </div>
-
-            <h3 class="menu-title">TEQUILA</h3>
-            <div class="drink-grid">
-              <div class="drink-item"><div class="bottle tequila-bottle"></div><b class="drink-name">JOSE CUERVO</b><span class="drink-ko">호세 쿠엘보</span><strong class="drink-price">300,000</strong></div>
-              <div class="drink-item"><div class="bottle clear-bottle wide-bottle"></div><b class="drink-name">PATRON SILVER</b><span class="drink-ko">페트론 실버</span><strong class="drink-price">500,000</strong></div>
-              <div class="drink-item"><div class="bottle clear-bottle wide-bottle"></div><b class="drink-name">CLASE AZUL</b><span class="drink-ko">클라세 아줄</span><strong class="drink-price">1,100,000</strong></div>
-              <div class="drink-item"><div class="bottle tequila-bottle thin-bottle"></div><b class="drink-name">DON JULIO 1942</b><span class="drink-ko">돈훌리오 1942</span><strong class="drink-price">1,100,000</strong></div>
-            </div>
-
-            <h3 class="menu-title">WHISKY</h3>
-            <div class="drink-grid three">
-              <div class="drink-item"><div class="bottle gold-bottle"></div><b class="drink-name">JOHNNIE WALKER BLONDE</b><span class="drink-ko">조니워커 블론드</span><strong class="drink-price">350,000</strong></div>
-              <div class="drink-item"><div class="bottle black-bottle"></div><b class="drink-name">JOHNNIE WALKER RUBY</b><span class="drink-ko">조니워커 루비</span><strong class="drink-price">400,000</strong></div>
-              <div class="drink-item"><div class="bottle gold-bottle"></div><b class="drink-name">JOHNNIE WALKER BLUE</b><span class="drink-ko">조니워커 블루</span><strong class="drink-price">1,500,000</strong></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="draw-card" style="margin-top:16px">
-          <div class="card-inner">
-            <h3 class="menu-title">CHOICE BOTTLE SET</h3>
-            <div class="set-block">
-              <div class="set-row">
-                <div><div class="bottle-cluster"><div class="bottle gold-bottle wide-bottle"></div></div><b class="set-label">1 BOTTLE</b><strong class="set-price">200,000</strong></div>
-                <div><div class="bottle-cluster"><div class="bottle gold-bottle wide-bottle"></div><div class="bottle green-bottle"></div></div><b class="set-label">2 BOTTLE SET</b><strong class="set-price">350,000</strong></div>
-                <div><div class="bottle-cluster"><div class="bottle gold-bottle wide-bottle"></div><div class="bottle gold-bottle wide-bottle"></div><div class="bottle green-bottle"></div></div><b class="set-label">3 BOTTLE SET</b><strong class="set-price">500,000</strong></div>
-              </div>
-              <div class="set-row" style="margin-top:18px; grid-template-columns: 1fr 1fr;">
-                <div><div class="bottle-cluster"><div class="bottle gold-bottle wide-bottle"></div><div class="bottle gold-bottle wide-bottle"></div><div class="bottle gold-bottle wide-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div></div><b class="set-label">5 BOTTLE SET</b><strong class="set-price">800,000</strong></div>
-                <div><div class="bottle-cluster"><div class="bottle gold-bottle wide-bottle"></div><div class="bottle gold-bottle wide-bottle"></div><div class="bottle gold-bottle wide-bottle"></div><div class="bottle gold-bottle wide-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div></div><b class="set-label">10 BOTTLE SET</b><strong class="set-price">1,200,000</strong></div>
-              </div>
-            </div>
-
-            <h3 class="menu-title" style="margin-top:20px">CHOICE LIST</h3>
-            <div class="choice-row">
-              <div class="drink-item"><div class="bottle pink-bottle"></div><b class="drink-name">RICHEBEL</b><span class="drink-ko">리쉬벨</span></div>
-              <div class="drink-item"><div class="bottle blue-bottle"></div><b class="drink-name">BELLE ETOIL</b><span class="drink-ko">벨에뚜알</span></div>
-              <div class="drink-item"><div class="bottle black-bottle"></div><b class="drink-name">JEAN PIERRE</b><span class="drink-ko">장 피에르</span></div>
-              <div class="drink-item"><div class="bottle clear-bottle"></div><b class="drink-name">ABSOLUT</b><span class="drink-ko">앱솔루트</span></div>
-              <div class="drink-item"><div class="bottle blue-bottle"></div><b class="drink-name">SKY</b><span class="drink-ko">스카이</span></div>
-              <div class="drink-item"><div class="bottle clear-bottle"></div><b class="drink-name">XXL</b><span class="drink-ko">XXL</span></div>
-              <div class="drink-item"><div class="bottle clear-bottle"></div><b class="drink-name">MALIBU</b><span class="drink-ko">말리부</span></div>
-              <div class="drink-item"><div class="bottle pink-bottle"></div><b class="drink-name">ALIZE(R)</b><span class="drink-ko">알리제 로제</span></div>
-              <div class="drink-item"><div class="bottle gold-bottle"></div><b class="drink-name">ALIZE(G)</b><span class="drink-ko">알리제 골드</span></div>
-            </div>
-
-            <h3 class="menu-title">ADD + 50,000 CHOICE LIST</h3>
-            <div class="choice-row">
-              <div class="drink-item"><div class="bottle black-bottle"></div><b class="drink-name">CARTES DE COUR KING</b><span class="drink-ko">킹</span></div>
-              <div class="drink-item"><div class="bottle black-bottle"></div><b class="drink-name">CARTES DE COUR QUEEN</b><span class="drink-ko">퀸</span></div>
-              <div class="drink-item"><div class="bottle tequila-bottle"></div><b class="drink-name">JOSE CUERVO</b><span class="drink-ko">호세 쿠엘보</span></div>
-              <div class="drink-item"><div class="bottle clear-bottle"></div><b class="drink-name">GREY GOOSE</b><span class="drink-ko">그레이 구스</span></div>
-              <div class="drink-item"><div class="bottle green-bottle"></div><b class="drink-name">AGWA</b><span class="drink-ko">아그와</span></div>
-              <div class="drink-item"><div class="bottle pink-bottle"></div><b class="drink-name">X-RATED</b><span class="drink-ko">엑스 레이티드</span></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="draw-card" style="margin-top:16px">
-          <div class="card-inner set-board">
-            <section class="set-block" style="padding-top:0">
-              <h3 class="menu-title">MOET &amp; CHADON BRUT - SET</h3>
-              <div class="set-row">
-                <div><div class="bottle-cluster"><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div></div><b class="set-label">3 BOTTLE</b><strong class="set-price">850,000</strong><span class="old-price">900,000</span></div>
-                <div><div class="bottle-cluster"><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div></div><b class="set-label">5 BOTTLE</b><strong class="set-price">1,400,000</strong><span class="old-price">1,500,000</span></div>
-                <div><div class="bottle-cluster"><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div><div class="bottle green-bottle"></div></div><b class="set-label">10 BOTTLE</b><strong class="set-price">2,800,000</strong><span class="old-price">3,000,000</span></div>
-              </div>
-            </section>
-            <section class="set-block">
-              <h3 class="menu-title">MOET N.I.R - SET</h3>
-              <div class="set-row">
-                <div><div class="bottle-cluster"><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div></div><b class="set-label">3 BOTTLE</b><strong class="set-price">1,450,000</strong><span class="old-price">1,500,000</span></div>
-                <div><div class="bottle-cluster"><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div></div><b class="set-label">5 BOTTLE</b><strong class="set-price">2,400,000</strong><span class="old-price">2,500,000</span></div>
-                <div><div class="bottle-cluster"><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div><div class="bottle pink-bottle"></div></div><b class="set-label">10 BOTTLE</b><strong class="set-price">4,800,000</strong><span class="old-price">5,000,000</span></div>
-              </div>
-            </section>
-            <section class="set-block">
-              <h3 class="menu-title">DOM PERIGNON - SET</h3>
-              <div class="set-row">
-                <div><div class="bottle-cluster"><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div></div><b class="set-label">3 BOTTLE</b><strong class="set-price">5,300,000</strong><span class="old-price">5,400,000</span></div>
-                <div><div class="bottle-cluster"><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div></div><b class="set-label">5 BOTTLE</b><strong class="set-price">8,800,000</strong><span class="old-price">9,000,000</span></div>
-                <div><div class="bottle-cluster"><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div><div class="bottle black-bottle"></div></div><b class="set-label">10 BOTTLE</b><strong class="set-price">17,600,000</strong><span class="old-price">18,000,000</span></div>
-              </div>
-            </section>
-            <section class="set-block">
-              <h3 class="menu-title">ARMAND DE BRIGNAC - SET</h3>
-              <div class="set-row">
-                <div><div class="bottle-cluster"><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div></div><b class="set-label">3 BOTTLE</b><strong class="set-price">7,100,000</strong><span class="old-price">7,200,000</span></div>
-                <div><div class="bottle-cluster"><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div></div><b class="set-label">5 BOTTLE</b><strong class="set-price">11,800,000</strong><span class="old-price">12,000,000</span></div>
-                <div><div class="bottle-cluster"><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div><div class="bottle gold-bottle"></div></div><b class="set-label">10 BOTTLE</b><strong class="set-price">23,600,000</strong><span class="old-price">24,000,000</span></div>
-              </div>
-            </section>
-          </div>
-        </article>
+        <div class="gallery-stack drink-image-stack">
+          <figure class="image-panel"><img src="assets/drink-choice-set.jpg" alt="THE SEOUL Choice Bottle Set 메뉴" loading="lazy" decoding="async" /></figure>
+          <figure class="image-panel"><img src="assets/drink-premium-set.jpg" alt="THE SEOUL Champagne Set 메뉴" loading="lazy" decoding="async" /></figure>
+          <figure class="image-panel"><img src="assets/drink-price.jpg" alt="THE SEOUL Drink Price 메뉴" loading="lazy" decoding="async" /></figure>
+        </div>
       </section>
 
       <section id="table" aria-labelledby="table-title">
@@ -1038,41 +1330,15 @@
           <div class="eyebrow">TABLE</div>
           <h2 id="table-title">TABLE VENUE MAP</h2>
         </div>
-        <div class="venue-map" role="img" aria-label="The Seoul 테이블 조판 배치도">
-          <div class="cityline" aria-hidden="true"></div>
-          <div class="photo-zone">PHOTO ZONE</div>
-          <div class="bar-zone">BAR</div>
-          <div class="stage">DJ</div>
-          <div class="entrance">ENTRANCE</div>
-          <div class="table-node" style="left:43%; top:20%">T1</div>
-          <div class="table-node" style="left:57%; top:20%">T2</div>
-          <div class="table-node" style="left:72%; top:25%; width:9%;">T3</div>
-          <div class="table-node" style="left:73%; top:32%; width:9%;">T4</div>
-          <div class="table-node" style="left:73%; top:39%; width:9%;">T5</div>
-          <div class="table-node" style="left:73%; top:47%; width:9%;">T6</div>
-          <div class="table-node" style="left:56%; top:57%">T7</div>
-          <div class="table-node" style="left:42%; top:57%">T8</div>
-          <div class="table-node" style="left:40%; top:73%">T9</div>
-          <div class="table-node" style="left:61%; top:72%">T10</div>
-          <div class="table-node" style="left:74%; top:72%">T11</div>
-          <div class="table-node" style="left:80%; top:55%">T12</div>
-          <div class="table-node" style="left:9%; top:48%; width:10%">V1</div>
-          <div class="table-node" style="left:9%; top:40%; width:10%">V2</div>
-          <div class="table-node" style="left:9%; top:32%; width:10%">V3</div>
-          <div class="table-node" style="left:9%; top:24%; width:10%">V4</div>
-          <div class="table-node" style="left:84%; top:27%; width:10%">V6</div>
-          <div class="table-node" style="left:86%; top:45%; width:10%">V7</div>
-          <div class="circle-node" style="left:64%; top:30%">S1</div>
-          <div class="circle-node" style="left:65%; top:38%">S2</div>
-          <div class="circle-node" style="left:57%; top:45%">S3</div>
-          <div class="circle-node" style="left:48%; top:45%">S4</div>
-          <div class="circle-node" style="left:39%; top:45%">S5</div>
-          <div class="bar-zone bottom">BAR</div>
-          <div class="table-node" style="left:69%; top:78%; width:9%;">B1</div>
-          <div class="table-node" style="left:69%; top:86%; width:9%;">B2</div>
-          <div class="table-node" style="left:69%; top:94%; width:9%;">B3</div>
-          <div class="venue-title"><small>THE SEOUL SOCIAL CLUB</small><strong>TABLE VENUE MAP</strong></div>
-        </div>
+        <figure class="image-panel table-map-panel"><img src="assets/table-map.jpg" alt="THE SEOUL TABLE VENUE MAP" loading="lazy" decoding="async" /></figure>
+        <article class="table-price-card" aria-label="테이블 가격 안내">
+          <div class="price-grid">
+            <div class="price-row"><b>T1 · T2 · T7 · T8</b><strong>100만원~</strong></div>
+            <div class="price-row"><b>T3 · T4 · T5 · T6 · T9 · T10 · T11 · T12</b><strong>50만원~</strong></div>
+            <div class="price-row"><b>V6 · V7</b><strong>100만원~</strong></div>
+          </div>
+          <p class="table-price-note">*당일 업장 상황에 따라 금액이 상이하게 달라질 수 있습니다.</p>
+        </article>
       </section>
 
       <section id="timetable" aria-labelledby="time-title">
@@ -1080,55 +1346,27 @@
           <div class="eyebrow">TIM TABLE</div>
           <h2 id="time-title">TIME TABLE</h2>
         </div>
-        <div class="cube-card" role="img" aria-label="The Seoul time table">
-          <div class="cube-art" aria-hidden="true"></div>
-          <div class="robot-hand" aria-hidden="true"></div>
-          <div class="time-date">MARCH<br />SAT 07</div>
-          <div class="activation">THE SEOUL CORE : ACTIVATION</div>
-          <div class="time-list">
-            <div class="time-row"><span>22:00</span><strong>SHOW TIME</strong></div>
-            <div class="time-row"><span>23:30</span><strong>LEV</strong></div>
-            <div class="time-row"><span>00:20</span><strong>CHOVY</strong></div>
-            <div class="time-row highlight"><span>01:10</span><strong>RAVY x OVERFLOW *</strong></div>
-            <div class="time-row"><span>02:00</span><strong>TELSTAR *</strong></div>
-            <div class="time-row"><span>02:50</span><strong>FELLIX x AKILL *</strong></div>
-            <div class="time-row"><span>03:40</span><strong>CHOVY</strong></div>
-            <div class="time-row"><span>04:30</span><strong>LEV</strong></div>
-            <div class="time-row"><span>05:30</span><strong>RES. DJ</strong></div>
-          </div>
-          <div class="time-footer">
-            <div class="animated-logo mini-logo" aria-label="THE SEOUL 로고">
-              <div class="logo-word" aria-hidden="true"><span class="char">T</span><span class="char">H</span><span class="e-bars"><i></i><i></i><i></i></span></div>
-              <div class="logo-word" aria-hidden="true"><span class="char">S</span><span class="e-bars"><i></i><i></i><i></i></span><span class="char">OUL</span></div>
-            </div>
-            <div>221, ITAEWON-RO, YONGSAN-GU, SEOUL · OFFICIAL INSTAGRAM @CLUBTHESEOUL</div>
-          </div>
-        </div>
+        <figure class="image-panel"><img src="assets/time-table.jpg" alt="THE SEOUL TIME TABLE" loading="lazy" decoding="async" /></figure>
       </section>
 
-      <section id="reservation" aria-labelledby="reservation-title">
+      <section id="map" aria-labelledby="map-title">
         <div class="section-head">
-          <div class="eyebrow">VIP RESERVATION</div>
-          <h2 id="reservation-title">VIP 예약</h2>
+          <div class="eyebrow">MAP</div>
+          <h2 id="map-title">LOCATION MAP</h2>
         </div>
-        <article class="reservation-card">
-          <div class="card-inner">
-            <span class="unit">가격 단위 : 만원</span>
-            <div class="price-grid">
-              <div class="price-row"><b>T1 · T2 · T7 · T8</b><strong>100~</strong></div>
-              <div class="price-row"><b>T3 · T4 · T5 · T6 · T9 · T10 · T11 · T12</b><strong>50~</strong></div>
-              <div class="price-row"><b>V6 · V7</b><strong>100~</strong></div>
-            </div>
-          </div>
-        </article>
+        <figure class="image-panel map-panel"><img src="assets/location-map.png" alt="THE SEOUL LOCATION MAP" loading="lazy" decoding="async" /></figure>
+        <div class="map-address" aria-label="The Seoul address">
+          <p>B1, 221 Itaewon-ro, Yongsan-gu, Seoul</p>
+          <p>서울시 용산구 이태원로 221, 지하 1층</p>
+        </div>
       </section>
 
-      <section id="qna" aria-labelledby="qna-title">
+      <section id="qna" aria-labelledby="qna-title" class="qna-neon-section">
         <div class="section-head">
           <div class="eyebrow">QNA</div>
           <h2 id="qna-title">자주 묻는 질문</h2>
         </div>
-        <div class="faq-list">
+        <div class="faq-list faq-neon">
           <article class="faq-item"><div class="q">Q1. 하루 평균 몇명이 입장하나요?</div><div class="a">A1. 남녀 포함 약 500~1천명 가까이 되며, 성비는 5:5 내지 6:4 정도로 균일합니다.</div></article>
           <article class="faq-item"><div class="q">Q2. 언제 오픈하나요?</div><div class="a">A2. 매주 금, 토 또는 연휴 전, 당일날 오후 10시부터 오전 07시까지 오픈합니다.</div></article>
           <article class="faq-item"><div class="q">Q3. 입뺀이 심한가요?</div><div class="a">A3. 심하지 않습니다. 다만 외국인 분들의 경우 신분증 검사를 철저히 하고 있으며, 슬리퍼는 안전문제로 인하여 입장이 제한될 수 있습니다.</div></article>
@@ -1139,9 +1377,13 @@
 
       <footer class="footer">
         <div class="footer-logo-wrap" aria-label="The Seoul 리메이크 로고">
-          <div class="animated-logo">
-            <div class="logo-word" aria-hidden="true"><span class="char">T</span><span class="char">H</span><span class="e-bars"><i></i><i></i><i></i></span></div>
-            <div class="logo-word" aria-hidden="true"><span class="char">S</span><span class="e-bars"><i></i><i></i><i></i></span><span class="char">OUL</span></div>
+          <div class="animated-logo" aria-label="THE SEOUL 로고">
+            <div class="logo-word" aria-hidden="true">
+              <span class="char">T</span><span class="char">H</span><span class="e-bars"><i></i><i></i><i></i></span>
+            </div>
+            <div class="logo-word" aria-hidden="true">
+              <span class="char">S</span><span class="e-bars"><i></i><i></i><i></i></span><span class="char">OUL</span>
+            </div>
           </div>
         </div>
         <p>
@@ -1155,8 +1397,9 @@
 
   <nav class="fixed-cta" aria-label="고정 문의 버튼">
     <div class="fixed-cta-inner">
-      <a class="cta cta-kakao" href="https://open.kakao.com/o/sbBC5rui" target="_blank" rel="noopener noreferrer" aria-label="카카오톡으로 더 서울 예약 문의하기">카톡 문의</a>
-      <a class="cta cta-sms" href="sms:01026460270?body=더%20서울%20예약%20문의드립니다.%0A날짜:%0A성함:%0A인원:%0A자리:%0A바틀:%0A시간:" aria-label="문자로 더 서울 예약 문의하기">문자 문의</a>
+      <a class="cta cta-kakao" href="https://open.kakao.com/o/sbBC5rui" target="_blank" rel="noopener noreferrer" aria-label="카카오톡으로 더 서울 예약 문의하기"><span class="cta-icon icon-kakao" aria-hidden="true"></span><span>카톡 문의</span></a>
+      <a class="cta cta-instagram" href="https://www.instagram.com/itaewon_theseoul?igsh=MXE3MG93OGgwcDY1Mw==" target="_blank" rel="noopener noreferrer" aria-label="인스타그램에서 더 서울 보기"><span class="cta-icon ig-symbol" aria-hidden="true"></span><span>인스타그램</span></a>
+      <a class="cta cta-sms" href="sms:01026460270?body=더%20서울%20예약%20문의드립니다.%0A날짜:%0A성함:%0A인원:%0A자리:%0A바틀:%0A시간:" aria-label="문자로 더 서울 예약 문의하기"><span class="cta-icon icon-message" aria-hidden="true"></span><span>문자 문의</span></a>
     </div>
   </nav>
 </body>
