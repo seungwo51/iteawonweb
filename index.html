@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -2026,7 +2027,323 @@
       }
     }
 
-  </style>
+
+    /* v18 requested patch: section captions + transparent top menu */
+    .topbar {
+      background: transparent !important;
+      border-bottom: 0 !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    .topbar::before,
+    .topbar::after {
+      display: none !important;
+      content: none !important;
+    }
+    .topbar .nav-links a,
+    .topbar .main-nav a {
+      background: transparent !important;
+      box-shadow: none !important;
+      border-color: rgba(255,255,255,.24) !important;
+    }
+    .neon-section-head.menu-only {
+      display: flex !important;
+      align-items: center !important;
+      gap: 9px !important;
+      flex-wrap: nowrap !important;
+    }
+    .neon-section-head.menu-only .section-caption {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: inline-block;
+      color: rgba(255,255,255,.86);
+      font-size: clamp(10px, 2.7vw, 12px);
+      line-height: 1.25;
+      font-weight: 750;
+      letter-spacing: -.02em;
+      text-shadow: 0 0 10px rgba(255,255,255,.18), 0 0 14px rgba(244,0,180,.20);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @media (max-width: 430px) {
+      .neon-section-head.menu-only {
+        gap: 7px !important;
+      }
+      .neon-section-head.menu-only .section-caption {
+        font-size: 10px;
+      }
+    }
+
+  
+    /* v19 requested patch: QNA caption + one continuous neon club background */
+    html, body {
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 0, 149, .22), transparent 28%),
+        radial-gradient(circle at 82% 14%, rgba(103, 44, 255, .20), transparent 30%),
+        radial-gradient(circle at 50% 42%, rgba(0, 232, 255, .10), transparent 36%),
+        radial-gradient(circle at 15% 78%, rgba(255, 208, 0, .08), transparent 28%),
+        radial-gradient(circle at 86% 82%, rgba(255, 60, 212, .11), transparent 30%),
+        linear-gradient(180deg,
+          #06000b 0%,
+          #110016 14%,
+          #17001f 28%,
+          #0e0015 44%,
+          #16001d 60%,
+          #0a0011 76%,
+          #06000b 100%) !important;
+      background-attachment: fixed !important;
+      background-color: #06000b !important;
+    }
+
+    .site,
+    main {
+      background: transparent !important;
+    }
+
+    /* remove abrupt section color blocks / dividers without changing content structure */
+    section,
+    .hero,
+    .compact-section,
+    .footer,
+    .qna-neon-section {
+      background: transparent !important;
+      border-top: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .hero::before,
+    .hero::after {
+      border-bottom: 0 !important;
+      box-shadow: none !important;
+    }
+
+    /* soft glow veil so transitions feel connected rather than cut */
+    #people::before,
+    #drink::before,
+    #table::before,
+    #timetable::before,
+    #map::before,
+    #qna::before,
+    .footer::before {
+      content: "" !important;
+      position: absolute !important;
+      left: 0 !important;
+      right: 0 !important;
+      top: -32px !important;
+      height: 72px !important;
+      pointer-events: none !important;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(255, 0, 149, .06), transparent 66%),
+        linear-gradient(180deg, rgba(17, 0, 22, 0), rgba(17, 0, 22, .18) 50%, rgba(17, 0, 22, 0)) !important;
+      z-index: 0 !important;
+    }
+
+    #people, #drink, #table, #timetable, #map, #qna, .footer {
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    #people > *, #drink > *, #table > *, #timetable > *, #map > *, #qna > *, .footer > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* keep menu headings readable on the unified background */
+    .neon-section-head.menu-only .section-caption {
+      color: rgba(255,255,255,.90) !important;
+      text-shadow: 0 0 8px rgba(255,255,255,.10), 0 0 12px rgba(255, 0, 149, .18) !important;
+    }
+
+
+/* v20 requested patch: continuous neon background + transparent styled top menu only */
+    html,
+    body {
+      background-color: #050006 !important;
+      background-image: none !important;
+    }
+
+    body {
+      position: relative !important;
+      isolation: isolate !important;
+    }
+
+    body::before {
+      content: "" !important;
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: -30 !important;
+      pointer-events: none !important;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 0, 160, .32), transparent 30%),
+        radial-gradient(circle at 84% 14%, rgba(98, 45, 255, .30), transparent 32%),
+        radial-gradient(circle at 58% 34%, rgba(255, 214, 80, .12), transparent 28%),
+        radial-gradient(circle at 14% 62%, rgba(0, 238, 255, .12), transparent 34%),
+        radial-gradient(circle at 88% 76%, rgba(255, 30, 185, .18), transparent 32%),
+        linear-gradient(180deg,
+          #050006 0%,
+          #100014 14%,
+          #180020 28%,
+          #0b0614 42%,
+          #17001e 58%,
+          #090010 76%,
+          #050006 100%) !important;
+      background-size: 100% 100% !important;
+    }
+
+    body::after {
+      content: "" !important;
+      position: fixed !important;
+      inset: -8% -18% !important;
+      z-index: -29 !important;
+      pointer-events: none !important;
+      opacity: .70 !important;
+      background:
+        linear-gradient(112deg, transparent 0 31%, rgba(255, 36, 207, .10) 33%, transparent 39%),
+        linear-gradient(68deg, transparent 0 42%, rgba(255, 215, 92, .085) 44%, transparent 49%),
+        linear-gradient(150deg, transparent 0 57%, rgba(32, 255, 238, .07) 59%, transparent 64%),
+        repeating-linear-gradient(180deg, rgba(255,255,255,.018) 0 1px, transparent 1px 24px) !important;
+      filter: blur(.2px) saturate(1.2) !important;
+      animation: seoulBgDrift 18s ease-in-out infinite alternate !important;
+    }
+
+    @keyframes seoulBgDrift {
+      0% { transform: translate3d(-1.5%, -1%, 0) scale(1); opacity: .58; }
+      100% { transform: translate3d(1.5%, 1%, 0) scale(1.025); opacity: .78; }
+    }
+
+    .site,
+    main,
+    section,
+    .hero,
+    .compact-section,
+    .people-section,
+    .price-section,
+    .table-section,
+    .time-section,
+    .map-section,
+    .qna-neon-section,
+    .footer {
+      background: transparent !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      border-top: 0 !important;
+    }
+
+    #people::before,
+    #drink::before,
+    #table::before,
+    #timetable::before,
+    #map::before,
+    #qna::before,
+    .footer::before {
+      display: none !important;
+      content: none !important;
+      background: none !important;
+    }
+
+    .hero::before {
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.42) 55%, rgba(5,0,6,.82) 82%, rgba(5,0,6,0) 100%),
+        url("assets/front-main.jpg") center / cover no-repeat !important;
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 72%, rgba(0,0,0,.42) 88%, transparent 100%) !important;
+      mask-image: linear-gradient(180deg, #000 0%, #000 72%, rgba(0,0,0,.42) 88%, transparent 100%) !important;
+      filter: saturate(1.22) contrast(1.08) brightness(.98) !important;
+    }
+
+    .hero::after {
+      background:
+        radial-gradient(circle at 16% 18%, rgba(255,23,77,.48), transparent 32%),
+        radial-gradient(circle at 74% 20%, rgba(141,56,255,.50), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.22) 64%, rgba(5,0,6,0) 100%),
+        linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.18) 52%, rgba(0,0,0,.68)) !important;
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 76%, transparent 100%) !important;
+      mask-image: linear-gradient(180deg, #000 0%, #000 76%, transparent 100%) !important;
+    }
+
+    .topbar {
+      background: transparent !important;
+      background-image: none !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .topbar .nav-links a,
+    .topbar .main-nav a {
+      position: relative !important;
+      overflow: visible !important;
+      background: transparent !important;
+      background-image: none !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      color: rgba(255,255,255,.96) !important;
+      font-size: clamp(12px, 3.25vw, 14px) !important;
+      font-weight: 950 !important;
+      letter-spacing: .055em !important;
+      text-shadow:
+        0 0 8px rgba(255,255,255,.28),
+        0 0 16px rgba(255, 0, 170, .22),
+        0 0 24px rgba(255, 214, 80, .12) !important;
+      transition: transform .18s ease, color .18s ease, text-shadow .18s ease !important;
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .topbar .nav-links a::after,
+    .topbar .main-nav a::after {
+      content: "" !important;
+      position: absolute !important;
+      left: 14% !important;
+      right: 14% !important;
+      bottom: 3px !important;
+      height: 2px !important;
+      border-radius: 999px !important;
+      background: linear-gradient(90deg, transparent, rgba(255, 214, 80, .96), rgba(255, 0, 190, .92), transparent) !important;
+      box-shadow: 0 0 10px rgba(255, 0, 190, .34), 0 0 14px rgba(255, 214, 80, .22) !important;
+      opacity: .72 !important;
+      transform: scaleX(.86) !important;
+      transform-origin: center !important;
+      animation: navNeonLine 2.8s ease-in-out infinite !important;
+    }
+
+    .topbar .nav-links a:nth-child(2)::after { animation-delay: .18s !important; }
+    .topbar .nav-links a:nth-child(3)::after { animation-delay: .36s !important; }
+    .topbar .nav-links a:nth-child(4)::after { animation-delay: .54s !important; }
+    .topbar .nav-links a:nth-child(5)::after { animation-delay: .72s !important; }
+    .topbar .nav-links a:nth-child(6)::after { animation-delay: .90s !important; }
+
+    @keyframes navNeonLine {
+      0%, 100% { opacity: .50; transform: scaleX(.72); }
+      50% { opacity: .98; transform: scaleX(1); }
+    }
+
+    .topbar .nav-links a:hover,
+    .topbar .main-nav a:hover,
+    .topbar .nav-links a:active,
+    .topbar .main-nav a:active {
+      transform: translateY(-1px) !important;
+      color: #fff7ca !important;
+      text-shadow:
+        0 0 10px rgba(255,255,255,.46),
+        0 0 18px rgba(255, 0, 190, .36),
+        0 0 24px rgba(255, 214, 80, .22) !important;
+    }
+
+    @media (max-width: 560px) {
+      body::after {
+        inset: -6% -30% !important;
+      }
+      .topbar .nav-links a,
+      .topbar .main-nav a {
+        min-height: 42px !important;
+        font-size: clamp(12px, 3.15vw, 13.5px) !important;
+        letter-spacing: .035em !important;
+      }
+    }
+
+</style>
 </head>
 
 <body>
@@ -2068,7 +2385,7 @@
 
       <section id="people" aria-labelledby="people-title" class="compact-section people-section">
         <div class="section-head neon-section-head menu-only">
-          <h2 id="people-title" class="section-name">PEOPLE</h2>
+          <h2 id="people-title" class="section-name">PEOPLE</h2><span class="section-caption">2026.05.09 실시간 현황</span>
         </div>
         <div class="slider-wrap people-slider" data-slider="people">
           <button class="slider-btn slider-prev" type="button" aria-label="이전 현장 사진">‹</button>
@@ -2088,7 +2405,7 @@
 
       <section id="drink" aria-labelledby="drink-title" class="compact-section price-section">
         <div class="section-head neon-section-head menu-only">
-          <h2 id="drink-title" class="section-name">PRICE</h2>
+          <h2 id="drink-title" class="section-name">PRICE</h2><span class="section-caption">테이블 주대 가격</span>
         </div>
         <div class="slider-wrap price-slider" data-slider="price">
           <button class="slider-btn slider-prev" type="button" aria-label="이전 가격표">‹</button>
@@ -2103,7 +2420,7 @@
 
       <section id="table" aria-labelledby="table-title" class="compact-section table-section">
         <div class="section-head neon-section-head menu-only">
-          <h2 id="table-title" class="section-name">TABLE</h2>
+          <h2 id="table-title" class="section-name">TABLE</h2><span class="section-caption">조판 맵 비딩</span>
         </div>
         <figure class="image-panel table-map-panel"><img src="assets/table-map.jpg" alt="THE SEOUL 테이블 배치도" loading="lazy" decoding="async" /></figure>
         <article class="table-price-card" aria-label="테이블 가격 안내">
@@ -2118,14 +2435,14 @@
 
       <section id="timetable" aria-labelledby="time-title" class="compact-section time-section">
         <div class="section-head neon-section-head menu-only">
-          <h2 id="time-title" class="section-name">TIME TABLE</h2>
+          <h2 id="time-title" class="section-name">TIME TABLE</h2><span class="section-caption">타임테이블 DJ라인업</span>
         </div>
         <figure class="image-panel time-panel"><img src="assets/time-table.jpg" alt="THE SEOUL 타임 테이블" loading="lazy" decoding="async" /></figure>
       </section>
 
       <section id="map" aria-labelledby="map-title" class="compact-section map-section">
         <div class="section-head neon-section-head menu-only">
-          <h2 id="map-title" class="section-name">MAP</h2>
+          <h2 id="map-title" class="section-name">MAP</h2><span class="section-caption">오시는 길</span>
         </div>
         <figure class="image-panel map-panel"><img src="assets/location-map.png" alt="THE SEOUL 위치 지도" loading="lazy" decoding="async" /></figure>
         <div class="map-address" aria-label="The Seoul address">
@@ -2136,7 +2453,7 @@
 
       <section id="qna" aria-labelledby="qna-title" class="qna-neon-section">
         <div class="section-head neon-section-head menu-only">
-          <h2 id="qna-title" class="section-name">QNA</h2>
+          <h2 id="qna-title" class="section-name">QNA</h2><span class="section-caption">자주 묻는 질문</span>
         </div>
         <div class="faq-list faq-neon">
           <article class="faq-item"><div class="q">Q1. 하루 평균 몇명이 입장하나요?</div><div class="a">A1. 남녀 포함 약 500~1천명 가까이 되며, 성비는 5:5 내지 6:4 정도로 균일합니다.</div></article>
@@ -2144,6 +2461,7 @@
           <article class="faq-item"><div class="q">Q3. 입뺀이 심한가요?</div><div class="a">A3. 심하지 않습니다. 다만 외국인 분들의 경우 신분증 검사를 철저히 하고 있으며, 슬리퍼는 안전문제로 인하여 입장이 제한될 수 있습니다.</div></article>
           <article class="faq-item"><div class="q">Q4. 짐을 무료로 맡길 수 있나요?</div><div class="a">A4. 코트체크 사물함을 이용해야 하며 5천원 내지 만원 정도 결제가 필요합니다.</div></article>
           <article class="faq-item"><div class="q">Q5. 테이블 예약을 어떻게 해야 하나요?</div><div class="a">A5. 하단 카카오톡 또는 문자 문의를 주시면 담당자가 신속히 안내드리고 있습니다. 실시간으로 예약이 가능하나, 한 번 판매된 테이블 자리는 다시 구매가 어렵기 때문에 꼭 예약하고 싶은 테이블이 있다면 신속히 문의를 당부드립니다.</div></article>
+          <article class="faq-item"><div class="q">Q6. 게스트 무료입장 가능한가요?</div><div class="a">A6. 네, 여성분들은 언제든 무료 입장이 가능하지만 테이블 예약을 하지 않은 남성분들은 12시 이후 성비 유지를 위해 입장제한이 있을 수 있습니다.</div></article>
         </div>
       </section>
 
@@ -2178,7 +2496,7 @@
     <div class="fixed-cta-inner">
       <a class="cta cta-kakao" href="https://open.kakao.com/o/sbBC5rui" target="_blank" rel="noopener noreferrer" aria-label="카카오톡으로 더 서울 예약 문의하기"><span>카톡 문의</span></a>
       <a class="cta cta-instagram" href="https://www.instagram.com/itaewon_theseoul?igsh=MXE3MG93OGgwcDY1Mw==" target="_blank" rel="noopener noreferrer" aria-label="인스타그램에서 더 서울 보기"><span>인스타그램</span></a>
-      <a class="cta cta-sms" href="sms:01026460270?body=더%20서울%20예약%20문의드립니다.%0A날짜:%0A성함:%0A인원:%0A자리:%0A바틀:%0A시간:" aria-label="문자로 더 서울 예약 문의하기"><span>문자 문의</span></a>
+      <a class="cta cta-sms" href="sms:01026460270?body=더%20서울%20예약%20문의드립니다.%0A날짜%20및%20시각:%0A인원:%0A성별:%0A게스트%20및%20테이블%20여부:" aria-label="문자로 더 서울 예약 문의하기"><span>문자 문의</span></a>
     </div>
   </nav>
   <script>
