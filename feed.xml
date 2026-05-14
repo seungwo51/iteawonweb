@@ -4,35 +4,35 @@
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
      xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>THE SEOUL | 이태원클럽 더 서울 공식 안내</title>
+    <title>ACE CLUB | 이태원클럽 에이스 클럽 공식 안내</title>
     <link>https://itaewonclub.kr/</link>
     <atom:link href="https://itaewonclub.kr/feed.xml" rel="self" type="application/rss+xml" />
-    <description>서울시 용산구 이태원로 221 지하 1층에 위치한 THE SEOUL 공식 안내. 이태원 클럽 예약, VIP 테이블, PRICE, TIME, MAP, QNA 정보를 제공합니다.</description>
+    <description>서울시 용산구 이태원로 221 지하 1층에 위치한 ACE CLUB 공식 안내. 이태원 클럽 예약, VIP 테이블, PRICE, TIME, MAP, QNA 정보를 제공합니다.</description>
     <language>ko-KR</language>
     <lastBuildDate>Tue, 12 May 2026 00:00:00 +0900</lastBuildDate>
     <pubDate>Tue, 12 May 2026 00:00:00 +0900</pubDate>
     <ttl>60</ttl>
     <image>
       <url>https://itaewonclub.kr/assets/snippet.png</url>
-      <title>THE SEOUL</title>
+      <title>ACE CLUB</title>
       <link>https://itaewonclub.kr/</link>
     </image>
 
     <item>
-      <title>THE SEOUL 공식 홈페이지 — 이태원 500평대 대형 클럽 안내</title>
+      <title>ACE CLUB 공식 홈페이지 — 이태원 네온 프리미엄 클럽 안내</title>
       <link>https://itaewonclub.kr/</link>
       <guid isPermaLink="true">https://itaewonclub.kr/</guid>
       <pubDate>Tue, 12 May 2026 00:00:00 +0900</pubDate>
       <category>이태원클럽</category>
-      <category>THE SEOUL</category>
+      <category>ACE CLUB</category>
       <category>VIP 테이블 예약</category>
       <media:content url="https://itaewonclub.kr/assets/snippet.png" medium="image" />
       <description><![CDATA[
-THE SEOUL은 서울시 용산구 이태원로 221 지하 1층에 위치한 이태원 클럽입니다. 홈페이지에서는 PEOPLE, PRICE, TABLE, TIME, MAP, QNA 섹션을 통해 현장 분위기, 음료 가격, VIP 테이블, 영업 타임테이블, 위치, 자주 묻는 질문을 안내합니다. 테이블 예약, 게스트 입장, 대관 문의는 공식 홈페이지의 카카오톡·문자·인스타그램 동선을 통해 확인할 수 있습니다. 만 19세 미만은 출입할 수 없으며, 방문 전 신분증 확인과 당일 업장 상황을 확인하는 것이 필요합니다.
+ACE CLUB은 서울시 용산구 이태원로 221 지하 1층에 위치한 이태원 클럽입니다. 홈페이지에서는 PEOPLE, PRICE, TABLE, TIME, MAP, QNA 섹션을 통해 현장 분위기, 음료 가격, VIP 테이블, 영업 타임테이블, 위치, 자주 묻는 질문을 안내합니다. 테이블 예약, 게스트 입장, 대관 문의는 공식 홈페이지의 카카오톡·문자 문의 동선을 통해 확인할 수 있습니다. 만 19세 미만은 출입할 수 없으며, 방문 전 신분증 확인과 당일 업장 상황을 확인하는 것이 필요합니다.
       ]]></description>
       <content:encoded><![CDATA[
-<h2>THE SEOUL / 더 서울</h2>
-<p>이태원에서 유일한 500평대 대형 클럽으로 소개되는 THE SEOUL 공식 홈페이지입니다.</p>
+<h2>ACE CLUB / 에이스 클럽</h2>
+<p>네온사인 감성의 이태원 프리미엄 클럽으로 소개되는 ACE CLUB 공식 홈페이지입니다.</p>
 <ul>
   <li>주소: 서울시 용산구 이태원로 221, 지하 1층</li>
   <li>영문 주소: B1, 221 Itaewon-ro, Yongsan-gu, Seoul, Republic of Korea</li>

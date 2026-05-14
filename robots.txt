@@ -1,4 +1,4 @@
-# robots.txt — THE SEOUL / itaewonclub.kr
+# robots.txt — ACE CLUB / itaewonclub.kr
 # 목적: 네이버·구글 검색수집, 이미지 렌더링, AI 검색·답변 인용 접근 허용
 # 배포 위치: https://itaewonclub.kr/robots.txt
 # 기준 URL: https://itaewonclub.kr/
