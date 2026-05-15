@@ -1,0 +1,31 @@
+이태원클럽 SEO 텍스트
+
+대표 소개문:
+이태원클럽은 이태원 클럽을 방문하기 전 필요한 추천, 후기, 입뺀, 테이블, 가격, 입장료, 나이 제한, 장르별 분위기, 거리 혼잡도 정보를 한 번에 확인할 수 있는 모바일 최적화 가이드입니다. 힙합, EDM, 테크노, 하우스 등 장르별 선택 기준과 혼자 방문, 테이블 조각, 예약 문의 기준을 함께 정리합니다.
+
+검색 의도별 앵커 텍스트:
+- 이태원 클럽 추천: /best-itaewon-club.html
+- 이태원 클럽 정리: /itaewon-club-guide.html
+- 이태원 클럽 후기: /itaewon-club-review.html
+- 이태원 클럽 입뺀: /itaewon-club-entry.html
+- 이태원 클럽 테이블 가격: /itaewon-club-table.html
+- 이태원 클럽 조각: /itaewon-table-share.html
+- 이태원 힙합 클럽: /itaewon-hiphop-club.html
+- 이태원 EDM 클럽: /itaewon-edm-club.html
+- 이태원 테크노 클럽: /itaewon-techno-club.html
+- 이태원 클럽 혼자: /itaewon-club-alone.html
+- 이태원 클럽 특징: /itaewon-club-difference.html
+- 이태원 클럽 거리: /itaewon-club-street.html
+- 이태원 클럽 나이: /itaewon-club-age.html
+- 이태원 클럽 입장료: /itaewon-club-fee.html
+
+스니펫 후보 문구:
+이태원 클럽 정리, 후기, 추천, 입뺀, 테이블, 가격, 특징을 한 번에 확인하세요. 연령대, 성비, 혼잡 시간, 예약 기준, 장르별 분위기, 혼자 방문 기준까지 방문 전 필요한 정보를 요약했습니다.
+
+사이트 파일:
+- robots.txt: https://itaewonclub.kr/robots.txt
+- sitemap.xml: https://itaewonclub.kr/sitemap.xml
+- rss.xml: https://itaewonclub.kr/rss.xml
+- feed.xml: https://itaewonclub.kr/feed.xml
+- llms.txt: https://itaewonclub.kr/llms.txt
+- llms-full.txt: https://itaewonclub.kr/llms-full.txt
