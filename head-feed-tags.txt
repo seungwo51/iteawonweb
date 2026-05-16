@@ -1,5 +1,0 @@
-<!-- 선택 사항: index.html 및 세부 페이지 <head> 안에 추가하면 RSS/Atom 발견성이 좋아집니다. -->
-<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-<link rel="alternate" type="application/rss+xml" title="이태원 클럽 정리 RSS" href="/rss.xml">
-<link rel="alternate" type="application/atom+xml" title="이태원 클럽 정리 Atom Feed" href="/feed.xml">
-<link rel="canonical" href="https://itaewonclub.kr/">
