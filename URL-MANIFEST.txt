@@ -1,0 +1,42 @@
+itaewonclub.kr deployment manifest
+Generated: 2026-05-16
+
+HTML URLs
+https://itaewonclub.kr/
+https://itaewonclub.kr/best-itaewon-club.html
+https://itaewonclub.kr/itaewon-club-age.html
+https://itaewonclub.kr/itaewon-club-alone.html
+https://itaewonclub.kr/itaewon-club-cover-charge.html
+https://itaewonclub.kr/itaewon-club-entry.html
+https://itaewonclub.kr/itaewon-club-features.html
+https://itaewonclub.kr/itaewon-club-guide.html
+https://itaewonclub.kr/itaewon-club-review.html
+https://itaewonclub.kr/itaewon-club-street.html
+https://itaewonclub.kr/itaewon-club-table-price.html
+https://itaewonclub.kr/itaewon-edm-club.html
+https://itaewonclub.kr/itaewon-hiphop-club.html
+https://itaewonclub.kr/itaewon-table-share.html
+https://itaewonclub.kr/itaewon-techno-club.html
+
+SEO files
+https://itaewonclub.kr/sitemap.xml
+https://itaewonclub.kr/robots.txt
+https://itaewonclub.kr/feed.xml
+https://itaewonclub.kr/rss.xml
+https://itaewonclub.kr/llms.txt
+
+Image asset examples
+https://itaewonclub.kr/assets/itaewon-the-seoul-exterior.webp - 2026년 5월 기준 이태원 클럽 거리 외부 전경
+https://itaewonclub.kr/assets/itaewon-the-seoul-people-01.webp - 이태원 더서울 클럽 피플 현장 사진 1
+https://itaewonclub.kr/assets/itaewon-the-seoul-people-02.webp - 이태원 더서울 클럽 피플 현장 사진 2
+https://itaewonclub.kr/assets/itaewon-the-seoul-people-03.webp - 이태원 더서울 클럽 피플 현장 사진 3
+https://itaewonclub.kr/assets/itaewon-the-seoul-people-04.webp - 이태원 더서울 클럽 피플 현장 사진 4
+https://itaewonclub.kr/assets/itaewon-the-seoul-people-05.webp - 이태원 더서울 클럽 피플 현장 사진 5
+https://itaewonclub.kr/assets/itaewon-the-seoul-people-06.webp - 이태원 더서울 클럽 피플 현장 사진 6
+https://itaewonclub.kr/assets/itaewon-the-seoul-people-07.webp - 이태원 더서울 클럽 피플 현장 사진 7
+https://itaewonclub.kr/assets/itaewon-the-seoul-price-01.webp - 이태원 더서울 가격표 1
+https://itaewonclub.kr/assets/itaewon-the-seoul-price-02.webp - 이태원 더서울 가격표 2
+https://itaewonclub.kr/assets/itaewon-the-seoul-price-03.webp - 이태원 더서울 가격표 3
+https://itaewonclub.kr/assets/itaewon-the-seoul-table-map.webp - 이태원 더서울 테이블 배치도
+https://itaewonclub.kr/assets/itaewon-the-seoul-lineup.webp - 이태원 더서울 DJ 라인업
+https://itaewonclub.kr/assets/itaewon-the-seoul-location-map.webp - 이태원 더서울 위치 지도

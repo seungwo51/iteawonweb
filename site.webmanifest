@@ -1,0 +1,14 @@
+{
+  "name": "itaewonclub.kr",
+  "short_name": "Itaewon Club",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#050008",
+  "background_color": "#050008",
+  "display": "standalone"
+}
